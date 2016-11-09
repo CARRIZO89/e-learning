@@ -1,0 +1,9 @@
+<h1>MVP Courses</h1>
+
+<% if current_user %>
+  <!-- <%= link_to 'Dashboard', admin_dashboard_index_path %> -->
+  <h4>Usuario Logueado</h4>
+  <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>
