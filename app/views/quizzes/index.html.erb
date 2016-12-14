@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Quizzes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pass points</th>
+      <th>Time in seconds</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quizzes.each do |quiz| %>
+      <tr>
+        <td><%= quiz.pass_points %></td>
+        <td><%= quiz.time_in_seconds %></td>
+        <td><%= link_to 'Show', quiz %></td>
+        <td><%= link_to 'Edit', edit_course_module_quiz_path(:course_module_id, quiz) %></td>
+        <td><%= link_to 'Add Question', new_quiz_question_path(quiz) %></td>
+        <td><%= link_to 'List Questions', quiz_questions_path(quiz) %></td>
+        <!-- <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<tr>
+  <td><%= link_to 'New Quiz', new_course_module_quiz_path %></td>
+  <td><%= link_to 'Back', course_course_modules_path(@course_module.course) %></td>
+</tr>
