@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :role %><br />
-    <%= f.role_field :role, autofocus: true %>
+    <%= f.label :role_id, 'Role' %>
+    <%= f.select :role_id, role_options %>
   </div>
 
   <div class="actions">

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :courses do
     resources :course_modules, except: [:show, :destroy]
+    resources :inscriptions, except: [:show, :destroy]
   end
   resources :course_modules, only: [:show, :destroy] do
     resources :quizzes
