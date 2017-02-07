@@ -14,9 +14,8 @@ class TeachersController < ApplicationController
 
   # GET /teachers/new
   def new
-    person = Person.new
     # user = person.build_user
-    @teacher = Teacher.new(person: person)
+    @teacher = Teacher.new
   end
 
   # GET /teachers/1/edit
@@ -73,6 +72,6 @@ class TeachersController < ApplicationController
     def teacher_params
       # params.fetch(:teacher, {})
       params.require(:teacher)
-            .permit(person_attributes: [:first_name, :last_name, :province_id, user_attributes: [:email, :password, :password_confirmation, :role_id]])
+            .permit(:first_name, :last_name, :province_id, user_attributes: [:email, :password, :password_confirmation, :role_id])
     end
 end

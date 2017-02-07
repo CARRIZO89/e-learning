@@ -11,46 +11,20 @@
     </div>
   <% end %>
 
-  <%= f.fields_for :person do |pf| %>
-    <div class="field">
-      <%= pf.label :first_name %>
-      <%= pf.text_field :first_name %>
-    </div>
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
 
-    <div class="field">
-      <%= pf.label :last_name %>
-      <%= pf.text_field :last_name %>
-    </div>
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
 
-    <div class="field">
-      <%= pf.label :province_id, 'Province' %>
-      <%= pf.select :province_id, province_options %>
-    </div>
-
-    <!--
-    <%= pf.fields_for :user do |uf| %>
-      <div class="field">
-        <%= uf.label :email %>
-        <%= uf.text_field :email %>
-      </div>
-
-      <div class="field">
-        <%= uf.label :password %>
-        <%= uf.text_field :password %>
-      </div>
-
-      <div class="field">
-        <%= uf.label :password_confirmation %>
-        <%= uf.text_field :password_confirmation %>
-      </div>
-
-      <div class="field">
-        <%= uf.label :role_id, 'Role' %>
-        <%= uf.select :role_id, role_options %>
-      </div>
-    <% end %>
-    -->
-  <% end %>
+  <div class="field">
+    <%= f.label :province_id, 'Province' %>
+    <%= f.select :province_id, province_options %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
