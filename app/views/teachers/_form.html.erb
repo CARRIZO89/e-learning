@@ -1,0 +1,58 @@
+<%= form_for(teacher) do |f| %>
+  <% if teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :person do |pf| %>
+    <div class="field">
+      <%= pf.label :first_name %>
+      <%= pf.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :last_name %>
+      <%= pf.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= pf.label :province_id, 'Province' %>
+      <%= pf.select :province_id, province_options %>
+    </div>
+
+    <!--
+    <%= pf.fields_for :user do |uf| %>
+      <div class="field">
+        <%= uf.label :email %>
+        <%= uf.text_field :email %>
+      </div>
+
+      <div class="field">
+        <%= uf.label :password %>
+        <%= uf.text_field :password %>
+      </div>
+
+      <div class="field">
+        <%= uf.label :password_confirmation %>
+        <%= uf.text_field :password_confirmation %>
+      </div>
+
+      <div class="field">
+        <%= uf.label :role_id, 'Role' %>
+        <%= uf.select :role_id, role_options %>
+      </div>
+    <% end %>
+    -->
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

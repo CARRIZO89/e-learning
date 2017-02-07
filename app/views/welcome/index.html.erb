@@ -1,9 +1,22 @@
 <h1>MVP Courses</h1>
 
 <% if current_user %>
-  <!-- <%= link_to 'Dashboard', admin_dashboard_index_path %> -->
-  <h4>Usuario Logueado</h4>
-  <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+  <% if current_user.role.name == 'Student' %>
+    <%= render 'shared/student/menu' %>
+    <br>
+    <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+  <% elsif current_user.role.name == 'Admin' %>
+    <%= render 'shared/admin/menu' %>
+    <br>
+    <br>
+    <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+    <% elsif current_user.role.name == 'Teacher' %>
+    <%= render 'shared/teacher/menu' %>
+    <br>
+    <br>
+    <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+  <% end %>
+
 <% else %>
   <%= link_to 'Login', new_user_session_path %>
 <% end %>
