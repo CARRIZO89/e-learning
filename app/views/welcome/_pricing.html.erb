@@ -1,0 +1,30 @@
+<section id="pricing" class="pad-lg">
+  <div class="container">
+    <div class="row margin-40">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <h2 class="white">Ultimos Cursos</h2>
+        <p class="white">Escoge el curso a tu medida.</p>
+      </div>
+    </div>
+    
+    <div class="row margin-50">
+      <% last_courses.each_with_index do |course, index| %> <!--recorremos todos lo elementos dentro de la variable "last_courses" tomando los indices de cada uno con "with_index" -->
+        <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1s">
+          <% if (index != 1) %>
+            <br />
+          <% end %>
+          <ul class="list-unstyled pricing-table <%= 'active' if(index == 1) %> text-center">
+            <li class="headline"><h5 class="white">Curso de <%= course.name %></h5></li><!--Tomamos el nombre de cada elemento-->
+            <li class="price"><div class="amount">$5<small>/m</small></div></li>
+            <li class="info">2 row section for you package information. You can include all details or icons</li>
+            <li class="features first">Número de Resolución <%= course.no_resolution %></li><!--Tomamos el n° de resolucion de cada elemento-->
+            <li class="features">Fecha de Inicio <%= course.created_at %></li><!--Tomamos la fecha de inicio de cada elemento-->
+            <li class="features last btn btn-secondary btn-wide">
+              <%= link_to 'INSCRIBIRSE', new_course_inscription_path(course) %>
+            </li>
+          </ul>
+        </div>
+      <% end %>      
+    </div>
+  </div>
+</section>

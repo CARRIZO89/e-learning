@@ -10,7 +10,84 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= 
  *= require bootstrap.min
  *= require_self
  */
+* {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+ body {
+    background: url(Principal.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    font-size: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.Teacher {
+  background: url(Teacher.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+
+}
+
+.Student {
+  background: url(Students.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+.Admin {
+  background: url(Admin.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+ h1, h2 {
+    font-weight: bold;
+}
+
+.MVP_Courses {
+    background-color: rgba(242, 245, 249, 0.7);
+    border: 1px solid black;
+    height: 400px;
+    width: 300px;
+    padding: 80px;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #0b111c;
+   /* las 2 siguientes lineas son para la compatibilidad de los estilos/efectos agregados con los todos los navegadores*/
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+}
+
+.login_Principal {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.log_User {
+    background-color: rgba(242, 245, 249, 0.7);
+    border: 1px solid black;
+    height: 500px;
+    width: 350px;
+    padding: 50px;
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px #0b111c;
+    /* las 2 siguientes lineas son para la compatibilidad de los estilos/efectos agregados con los todos los navegadores*/
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px; 
+}
+
+.MVP_menus {
+    margin: 0 auto;
+} 
