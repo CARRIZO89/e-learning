@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215145121) do
+ActiveRecord::Schema.define(version: 20161220192451) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "description"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20170215145121) do
     t.string   "no_resolution"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "person_id"
-    t.index ["person_id"], name: "index_courses_on_person_id"
+    t.integer  "teacher_id"
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "inscriptions", force: :cascade do |t|
