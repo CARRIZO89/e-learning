@@ -1,4 +1,4 @@
-module User
+module Users
   class BaseController < ::ApplicationController
   end
 end
