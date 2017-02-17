@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20161220192451) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.string   "description"
     t.boolean  "right"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
   create_table "course_modules", force: :cascade do |t|
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161220192451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "course_id"
-    t.index ["course_id"], name: "index_course_modules_on_course_id"
+    t.index ["course_id"], name: "index_course_modules_on_course_id", using: :btree
   end
 
   create_table "courses", force: :cascade do |t|
@@ -35,14 +38,14 @@ ActiveRecord::Schema.define(version: 20161220192451) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "teacher_id"
-    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id", using: :btree
   end
 
   create_table "inscriptions", force: :cascade do |t|
     t.integer "course_id"
     t.integer "person_id"
-    t.index ["course_id"], name: "index_inscriptions_on_course_id"
-    t.index ["person_id"], name: "index_inscriptions_on_person_id"
+    t.index ["course_id"], name: "index_inscriptions_on_course_id", using: :btree
+    t.index ["person_id"], name: "index_inscriptions_on_person_id", using: :btree
   end
 
   create_table "people", force: :cascade do |t|
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20161220192451) do
     t.string  "last_name"
     t.integer "province_id"
     t.string  "type"
-    t.index ["province_id"], name: "index_people_on_province_id"
+    t.index ["province_id"], name: "index_people_on_province_id", using: :btree
   end
 
   create_table "provinces", force: :cascade do |t|
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 20161220192451) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "quiz_id"
-    t.index ["quiz_id"], name: "index_questions_on_quiz_id"
+    t.index ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -71,11 +74,18 @@ ActiveRecord::Schema.define(version: 20161220192451) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "course_module_id"
-    t.index ["course_module_id"], name: "index_quizzes_on_course_module_id"
+    t.index ["course_module_id"], name: "index_quizzes_on_course_module_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "people_id"
+    t.index ["people_id"], name: "index_teachers_on_people_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,10 +103,21 @@ ActiveRecord::Schema.define(version: 20161220192451) do
     t.datetime "updated_at",                          null: false
     t.integer  "role_id"
     t.integer  "person_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["person_id"], name: "index_users_on_person_id"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["role_id"], name: "index_users_on_role_id"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["person_id"], name: "index_users_on_person_id", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "course_modules", "courses"
+  add_foreign_key "courses", "teachers"
+  add_foreign_key "inscriptions", "courses"
+  add_foreign_key "inscriptions", "people"
+  add_foreign_key "people", "provinces"
+  add_foreign_key "questions", "quizzes"
+  add_foreign_key "quizzes", "course_modules"
+  add_foreign_key "teachers", "people", column: "people_id"
+  add_foreign_key "users", "people"
+  add_foreign_key "users", "roles"
 end
