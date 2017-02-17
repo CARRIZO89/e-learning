@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :questions
-  resources :answers
-  resources :teachers
   
   resources :courses do
     resources :course_modules, except: [:show, :destroy]
