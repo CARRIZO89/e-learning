@@ -4,12 +4,12 @@ es:
     #
     #
     models:
-      anwer: Respuesta
+      answer: Respuesta
       course: Curso
       course_module: Modulo
       inscription:
         one: Inscripción
-        other: inscriptiones
+        other: Inscriptiones
       person: Persona
       province: Provincia
       question: Pregunta
