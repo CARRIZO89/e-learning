@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  skip_around_action :set_locale_from_url
 
   protected
   def current_person
