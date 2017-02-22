@@ -2,7 +2,7 @@
   <p id="notice"><%= notice %></p>
 
   <h1>Courses</h1>
-
+  <hr/>
   <table>
     <thead>
       <tr>
@@ -17,20 +17,21 @@
         <tr>
           <td><%= course.name %></td>
           <td><%= course.no_resolution %></td>
-          <td><%= link_to 'Show', course %></td>
+          <td><%= link_to 'Show', course, class: "btn_show" %></td>
           <% if current_user.role.name == 'Admin' %>
-            <td><%= link_to 'Edit', edit_course_path(course) %></td>
+            <td><%= link_to 'Edit', edit_course_path(course), class: "btn_edit" %></td>
           <% end -%>
           <% if current_user.role.name == 'Teacher' %>
             <td><%= link_to 'Add Module', new_course_course_module_path(course) %></td>
             <td><%= link_to 'List Modules', course_course_modules_path(course) %></td>
           <% end -%>
+               
+
           <!-- <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
         </tr>
       <% end %>
     </tbody>
   </table>
-
   <br>
 
   <tr>
