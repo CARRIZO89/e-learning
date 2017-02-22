@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   localized do
+    devise_for :users, controllers: { registrations: 'users/registrations' }
+    
     resources :courses do
       resources :course_modules, except: [:show, :destroy]
       resources :inscriptions, except: [:show, :destroy]
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
       resources :answers
     end
 
-    devise_for :users
     root 'welcome#index'
 
     namespace :admin do
