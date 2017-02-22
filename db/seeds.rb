@@ -13,6 +13,8 @@ Person.create([{first_name: 'AdminName', last_name: 'AdminLastName', province_id
             {first_name: 'StudentName', last_name: 'StudentLastName', province_id: 3}, type: "Student"])
 puts 'Creating Roles...'
 roles = Role.create([{name: 'Admin'}, {name: 'Teacher'}, {name: 'Student'}, {name: 'Guest'}])
+puts 'Creating Modalities...'
+Modality.create([{name: 'Informe'}, {name: 'Multiple Choice'}, {name: 'Cuestionario Abierto'}, {name: 'No tiene'}])
 puts 'Creating Users...'
 User.create([{email: 'admin@example.com', password: 'admin123', role_id: 1, person_id: 1},
             {email: 'teacher@example.com', password: 'teacher123', role_id: 2, person_id: 2},
