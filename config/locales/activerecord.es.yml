@@ -1,0 +1,34 @@
+es:
+  activerecord:
+    #
+    #
+    #
+    models:
+      answer: Respuesta
+      course: Curso
+      course_module: Modulo
+      inscription:
+        one: Inscripción
+        other: Inscriptiones
+      person: Persona
+      province: Provincia
+      question: Pregunta
+      quiz:
+        one: Evaluación
+        other: Evaluaciones
+      role:
+        one: Rol
+        other: Roles
+      user: Usuario
+    #
+    #
+    #
+    attributes:
+      user:
+        role: Rol
+    #
+    #
+    #
+    errors:
+      messages:
+        required: es requerido

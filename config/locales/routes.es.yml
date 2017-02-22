@@ -1,0 +1,19 @@
+es:
+  routes:
+    # actions
+    edit: editar
+    new: nuevo
+    show: mostrar
+    sign_in: ingresar
+    sign_up: registrarse
+    # routes
+    admin: administrador
+    answers: respuestas
+    course_modules: modulos
+    courses: cursos
+    dashboard: panel_control
+    inscriptions: inscripciones
+    questions: preguntas
+    quizzes: evaluaciones
+    users: usuarios
+

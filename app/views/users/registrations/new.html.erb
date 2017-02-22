@@ -21,11 +21,6 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :role_id, 'Role' %>
-    <%= f.select :role_id, role_options %>
-  </div>
-
   <%= f.fields_for :person, Person.new do |g| %>
     <div class="field">
       <%= g.label :first_name %><br />
