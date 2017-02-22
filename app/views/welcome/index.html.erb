@@ -11,7 +11,12 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#pricing" class="scroll">Pricing</a></li>
-            <li><a href="#">Sign in</a></li>
+            <% if current_user %>
+              <li><%= link_to 'Cursos', courses_path %></li>
+              <li><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'Ingresar', new_user_session_path %></li>
+            <% end %>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -24,7 +29,13 @@
             <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
           </div>
           <div class="col-xs-6 signin text-right navbar-nav">
-            <a href="#pricing" class="scroll">Pricing</a>&nbsp; &nbsp;<a href="#">Sign in</a>
+            <a href="#pricing" class="scroll">Pricing</a>
+            <% if current_user %> <!-- Perguntamos si esta logeado. Si está, muestra las opciones de poder ver los cursos y salir -->
+              &nbsp; &nbsp;<%= link_to 'Cursos', courses_path %>
+              &nbsp; &nbsp;<%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+            <% else %>
+              &nbsp; &nbsp;<%= link_to 'Ingresar', new_user_session_path %> <!-- Si no está, le pide que inicie sesin -->
+            <% end %>
           </div>
         </div>
         
@@ -196,32 +207,3 @@
     <script src="js/wow.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-
-
-<div class="MVP_Courses">
-<h1>MVP Courses</h1>
-
-<% if current_user %>
-  <div class="MVP_menus">
-    <% if current_user.role.name == 'Student' %>
-      <%= render 'shared/student/menu' %>
-      <br>
-      <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
-    <% elsif current_user.role.name == 'Admin' %>
-      <%= render 'shared/admin/menu' %>
-      <br>
-      <br>
-      <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
-      <% elsif current_user.role.name == 'Teacher' %>
-      <%= render 'shared/teacher/menu' %>
-      <br>
-      <br>
-      <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
-    <% end %>
-  </div>
-<% else %>
-<div class="login_Principal">
-  <%= link_to 'Login', new_user_session_path %>
-</div>
-<% end %>
-</div>
