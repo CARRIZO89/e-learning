@@ -35,18 +35,6 @@ ActiveRecord::Schema.define(version: 20170223124112) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "no_resolution"
-<<<<<<< HEAD
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.integer  "person_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.date     "start_date",         null: false
-    t.date     "finish_date",        null: false
-    t.text     "description"
-=======
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "person_id"
@@ -55,8 +43,14 @@ ActiveRecord::Schema.define(version: 20170223124112) do
     t.string   "resolution_content_type"
     t.integer  "resolution_file_size"
     t.datetime "resolution_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.date     "start_date",              null: false
+    t.date     "finish_date",             null: false
+    t.text     "description"
     t.index ["modality_id"], name: "index_courses_on_modality_id", using: :btree
->>>>>>> master
     t.index ["person_id"], name: "index_courses_on_person_id", using: :btree
   end
 
