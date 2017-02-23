@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217010047) do
+ActiveRecord::Schema.define(version: 20170222233949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,15 @@ ActiveRecord::Schema.define(version: 20170217010047) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "no_resolution"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "person_id"
+    t.integer  "modality_id"
+    t.string   "resolution_file_name"
+    t.string   "resolution_content_type"
+    t.integer  "resolution_file_size"
+    t.datetime "resolution_updated_at"
+    t.index ["modality_id"], name: "index_courses_on_modality_id", using: :btree
     t.index ["person_id"], name: "index_courses_on_person_id", using: :btree
   end
 
@@ -46,6 +52,12 @@ ActiveRecord::Schema.define(version: 20170217010047) do
     t.integer "person_id"
     t.index ["course_id"], name: "index_inscriptions_on_course_id", using: :btree
     t.index ["person_id"], name: "index_inscriptions_on_person_id", using: :btree
+  end
+
+  create_table "modalities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|

@@ -26,6 +26,8 @@ es:
     attributes:
       user:
         role: Rol
+      course:
+        resolution: Resolución que lo avala
     #
     #
     #
