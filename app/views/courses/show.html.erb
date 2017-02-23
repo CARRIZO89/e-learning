@@ -4,8 +4,11 @@
   <strong>Name:</strong>
   <%= @course.name %>
   <br>
-  <strong>Number resolution:</strong>
+  <strong>Resolution Number:</strong>
   <%= @course.no_resolution %>
+  <br>
+  <strong>Modality:</strong>
+  <%= @course.modality.name %>
 </p>
 
 <% if current_user.role.name == 'Admin' %>

@@ -28,6 +28,10 @@ es:
         role: Rol
       course:
         resolution: Resolución que lo avala
+        name: Nombre
+        no_resolution: Número de Resolución
+        modality_id: Modalidad de Aprobación
+        description: Descripción
     #
     #
     #

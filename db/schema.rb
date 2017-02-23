@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20170222233949) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "course_modules", "courses"
+  add_foreign_key "courses", "modalities"
   add_foreign_key "courses", "people"
   add_foreign_key "inscriptions", "courses"
   add_foreign_key "inscriptions", "people"
