@@ -17,7 +17,7 @@
   </div>
 
   <div class="field_number_resolution">
-    <%= f.label :number_resolution %>
+    <%= f.label :no_resolution %>
     <%= f.text_field :no_resolution %>
   </div>
 
@@ -39,6 +39,16 @@
   <div class="field">
     <%= f.label :image %>
     <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :modality_id %>
+    <%= f.select :modality_id, modality_options %>
+  </div>
+
+  <div class="field_number_resolution">
+    <%= f.label :resolution %>
+    <%= f.file_field :resolution %>
   </div>
 
   <div class="actions">
