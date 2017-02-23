@@ -26,6 +26,11 @@
     <%= f.select :modality_id, modality_options %>
   </div>
 
+  <div class="field_number_resolution">
+    <%= f.label :resolution %>
+    <%= f.file_field :resolution %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
