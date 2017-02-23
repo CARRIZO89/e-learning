@@ -26,6 +26,11 @@ es:
     attributes:
       user:
         role: Rol
+      course:
+        name: Nombre
+        no_resolution: Número de Resolución
+        modality_id: Modalidad de Aprobación
+        description: Descripción
     #
     #
     #

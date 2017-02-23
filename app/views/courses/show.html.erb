@@ -4,12 +4,15 @@
   <strong>Name:</strong>
   <%= @course.name %>
   <br>
-  <strong>Number resolution:</strong>
+  <strong>Resolution Number:</strong>
   <%= @course.no_resolution %>
+  <br>
+  <strong>Modality:</strong>
+  <%= @course.modality.name %>
 </p>
 
 <% if current_user.role.name == 'Admin' %>
   <%= link_to 'Edit', edit_course_path(@course) %> |
 <% end -%>
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Back', courses_path %> |
 <%= link_to 'Register', new_course_inscription_path(@course) %>
