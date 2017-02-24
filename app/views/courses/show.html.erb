@@ -1,20 +1,37 @@
 <p id="notice"><%= notice %></p>
 <h1>Courses</h1>
 <p>
-  <strong>Name:</strong>
+  <strong>Name</strong>
   <%= @course.name %>
+  <% if @course.no_resolution.nil? %>
+    <br>
+    <strong>Resolution Number</strong>
+    <%= @course.no_resolution %>
+  <% end -%>
   <br>
-  <strong>Resolution Number:</strong>
-  <%= @course.no_resolution %>
-  <br>
-  <strong>Modality:</strong>
+  <strong>Modality</strong>
   <%= @course.modality.name %>
+  <br>
+  <strong>Start Date</strong>
+  <%= @course.start_date %>
+  <br>
+  <strong>Finish Date</strong>
+  <%= @course.finish_date %>
+  <br>
+  <strong>Description</strong>
+  <%= @course.description %>
+  <br>
+  <strong>Resolution Name</strong>
+  <%= @course.resolution_file_name %>
+  <br>
+  <strong>Image Name</strong>
+  <%= @course.image_file_name %>
 </p>
 
 <% if current_user.role.name == 'Admin' %>
-  <%= link_to 'Edit', edit_course_path(@course) %> |
+  <%= link_to (t(:edit)), edit_course_path(@course) %> |
 <% end -%>
-<%= link_to 'Back', courses_path %>
+<%= link_to (t(:back)), courses_path %>
 <% if current_user.role.name == 'Student' %>
   <%= link_to 'Register', new_course_inscription_path(@course) %>
 <% end -%>
