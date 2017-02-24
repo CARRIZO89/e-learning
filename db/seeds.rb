@@ -10,7 +10,7 @@ provinces = Province.create([{name: 'Tucumán'}, {name: 'Buenos Aires'}, {name: 
 
 Person.create([{first_name: 'AdminName', last_name: 'AdminLastName', province_id: 1, type: "Admin"},
             {first_name: 'TeacherName', last_name: 'TeacherLastName', province_id: 2, type: "Teacher"},
-            {first_name: 'StudentName', last_name: 'StudentLastName', province_id: 3}, type: "Student"])
+            {first_name: 'StudentName', last_name: 'StudentLastName', province_id: 3, type: "Student"}])
 puts 'Creating Roles...'
 roles = Role.create([{name: 'Admin'}, {name: 'Teacher'}, {name: 'Student'}, {name: 'Guest'}])
 puts 'Creating Modalities...'
