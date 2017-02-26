@@ -32,6 +32,10 @@ es:
         no_resolution: Número de Resolución
         modality_id: Modalidad de Aprobación
         description: Descripción
+      course_module:
+        name: Nombre
+        description: Descripción
+        youtube_link: Link de YouTube
     #
     #
     #

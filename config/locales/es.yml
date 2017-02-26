@@ -12,3 +12,9 @@ es:
     name: "Nombre"
     resolution_number: "Número de Resolución"
     modality: "Modalidad de Aprobación"
+  course_modules:
+    name: "Nombre"
+    description: "Descripción"
+    add_quiz: "Agrega Cuestionario"
+    list_quizzes: "Mostrar Cuestionarios"
+    add_modules: "Agregar Módulo"
