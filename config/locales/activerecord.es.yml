@@ -26,6 +26,15 @@ es:
     attributes:
       user:
         role: Rol
+        email: "Correo Electrónico"
+        password: "Contraseña"
+        password_confirmation: "Confirmar Contraseña"
+      person:
+        first_name: "Nombres"
+        last_name: "Apellido"
+        dni: "DNI"
+        province_id: "Provincia"
+
       course:
         resolution: Resolución que lo avala
         name: Nombre

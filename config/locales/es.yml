@@ -1,7 +1,11 @@
 es:
   hello: "Hola Mundo"
   admin_menu: "Admin Menu"
+  signup: "Registrarse"
+  login: "Ingresar"
   logout: "Salir"
+  forgot_password: "No te acordás tu contraseña?"
+  confirmation: "No recibiste el mail de confirmación?"
   back: "Atrás"
   show: "Ver"
   edit: "Modificar"
