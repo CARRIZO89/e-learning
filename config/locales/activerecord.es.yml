@@ -38,9 +38,12 @@ es:
       course:
         resolution: Resolución que lo avala
         name: Nombre
+        image: "Banner"
         no_resolution: Número de Resolución
         modality_id: Modalidad de Aprobación
         description: Descripción
+        start_date: "Fecha de Inicio"
+        finish_date: "Fecha de Finalización"
     #
     #
     #
