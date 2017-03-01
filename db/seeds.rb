@@ -8,9 +8,9 @@
 puts 'Creating Provinces...'
 provinces = Province.create([{name: 'Tucumán'}, {name: 'Buenos Aires'}, {name: 'Salta'}, {name: 'Jujuy'}, {name: 'Santa Fe'}, {name: 'Corrientes'}, {name: 'Catamarca'}, {name: 'Formosa'}, {name: 'Chaco'}, {name: 'Entre Rios'}, {name: 'Santiago del Estero'}, {name: 'Córdoba'}, {name: 'Misiones'}, {name: 'La Pampa'}, {name: 'San Juan'}, {name: 'Mendoza'}, {name: 'San Luis'}])
 
-Person.create([{first_name: 'AdminName', last_name: 'AdminLastName', province_id: 1, type: "Admin"},
-            {first_name: 'TeacherName', last_name: 'TeacherLastName', province_id: 2, type: "Teacher"},
-            {first_name: 'StudentName', last_name: 'StudentLastName', province_id: 3}, type: "Student"])
+Person.create([{first_name: 'AdminName', last_name: 'AdminLastName', province_id: 1, type: "Admin", dni: "11111111"},
+            {first_name: 'TeacherName', last_name: 'TeacherLastName', province_id: 2, type: "Teacher", dni: "22222222"},
+            {first_name: 'StudentName', last_name: 'StudentLastName', province_id: 3, type: "Student", dni: "33333333"}])
 puts 'Creating Roles...'
 roles = Role.create([{name: 'Admin'}, {name: 'Teacher'}, {name: 'Student'}, {name: 'Guest'}])
 puts 'Creating Modalities...'

@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20170226050451) do
     t.string   "resolution_content_type"
     t.integer  "resolution_file_size"
     t.datetime "resolution_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.date     "start_date",              null: false
+    t.date     "finish_date",             null: false
+    t.text     "description"
     t.index ["modality_id"], name: "index_courses_on_modality_id", using: :btree
     t.index ["person_id"], name: "index_courses_on_person_id", using: :btree
   end
@@ -65,6 +72,8 @@ ActiveRecord::Schema.define(version: 20170226050451) do
     t.string  "last_name"
     t.integer "province_id"
     t.string  "type"
+    t.string  "dni",         null: false
+    t.index ["dni"], name: "index_people_on_dni", unique: true, using: :btree
     t.index ["province_id"], name: "index_people_on_province_id", using: :btree
   end
 
