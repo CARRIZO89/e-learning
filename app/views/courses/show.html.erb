@@ -1,15 +1,33 @@
-<p id="notice"><%= notice %></p>
-<h1>Courses</h1>
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-  <br>
-  <strong>Number resolution:</strong>
-  <%= @course.no_resolution %>
-</p>
+<div class="show_detail_course">
+  <p id="notice"><%= notice %></p>
+  <h1>Detalle del Curso</h1>
+  <hr/>
+  <p>
+    <div class="show_name_course">
+      <strong id="show_name_c">Name:</strong>
+      <%= @course.name %>
+    </div>
+    <div class="show_numberRes_course">
+      <strong>Number resolution:</strong>
+      <%= @course.no_resolution %>
+    </div>
+     <div class="show_name_teacher">
+      <strong>Profesor:</strong>
+     
+    </div>
+     <div class="date">
+      <strong>Fede de Inicio:</strong>
+     
+    </div>
+    <div class="date">
+      <strong>Fede de Fin:</strong>
+     
+    </div>
+  </p>
 
-<% if current_user.role.name == 'Admin' %>
-  <%= link_to 'Edit', edit_course_path(@course) %> |
-<% end -%>
-<%= link_to 'Back', courses_path %>
-<%= link_to 'Register', new_course_inscription_path(@course) %>
+  <% if current_user.role.name == 'Admin' %>
+  <%= link_to 'Edit', edit_course_path(@course), class: "btn_show_edit" %>
+  <% end -%>
+  <%= link_to 'Back', courses_path, class: "btn_show_back" %>
+  <%= link_to 'Register', new_course_inscription_path(@course), class: "btn_show_reg" %>
+</div>
