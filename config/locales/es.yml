@@ -1,26 +1,27 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 es:
   hello: "Hola Mundo"
-  admin_menu: "Admin Menu"
-  logout: "Salir"
-
+  admin_menu: "Panel de Administrador"
+  signup: "Registrarse"
+  login: "Ingresar"
+  logout: "Cerrar Sesión"
+  forgot_password: "No te acordás tu contraseña?"
+  confirmation: "No recibiste el mail de confirmación?"
+  welcome: "Bienvenido,"
+  profile: "Mi Cuenta"
+  settings: "Configuración"
+  help: "Ayuda"
+  back: "Atrás"
+  show: "Ver"
+  edit: "Modificar"
+  courses:
+    title: "Cursos"
+    new_course: "Agregar Curso"
+    list_course: "Lista de Cursos"
+    add_modules: "Agregar Módulo"
+    list_modules: "Mostrar Módulos"
+    name: "Nombre"
+    resolution_number: "Número de Resolución"
+    modality: "Modalidad de Aprobación"
+    register: "Inscribirse"
+    start_date: "Fecha de Inicio"
+    finish_date: "Fecha de Finalización"

@@ -7,8 +7,9 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Number resolution</th>
-        <th colspan="2" id="option">Opciones</th>
+        <th>Start Date</th>
+        <th>Modality</th>
+        <th colspan="3"></th>
       </tr>
     </thead>
 
@@ -16,13 +17,14 @@
       <% @courses.each do |course| %>
         <tr>
           <td><%= course.name %></td>
-          <td><%= course.no_resolution %></td>
-          <td><%= link_to 'Show', course, class: "btn_show" %></td>
+          <td><%= course.start_date %></td>
+          <td><%= course.modality.name %></td>
+          <td><%= link_to t(:show), course, class: "btn_show" %></td>
           <% if current_user.role.name == 'Admin' %>
-            <td><%= link_to 'Edit', edit_course_path(course), class: "btn_edit" %></td>
+            <td><%= link_to t(:edit), edit_course_path(course), class: "btn_edit" %></td>
           <% end -%>
           <% if current_user.role.name == 'Teacher' %>
-            <td><%= link_to 'Add Module', new_course_course_module_path(course) %></td>
+            <td><%= link_to 'Add Modules', new_course_course_module_path(course) %></td>
             <td><%= link_to 'List Modules', course_course_modules_path(course) %></td>
           <% end -%>
                
@@ -38,6 +40,6 @@
     <% if current_user.role.name == 'Admin' %>
       <td><%= link_to 'New Course', new_course_path, class: "btn_new_course-ic" %></td>
     <% end -%>
-    <td><%= link_to 'Back', root_path, class: "btn_back-ic" %></td>
+    <td><%= link_to t(:back), root_path, class: "btn_back-ic" %></td>
   </tr>
 </div>
