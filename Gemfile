@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'route_translator'
 gem "paperclip", "~> 5.0.0"
+gem 'youtube_rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -25,7 +26,6 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'rspec'
 end
 
 group :development do
