@@ -44,6 +44,10 @@ es:
         description: Descripción
         start_date: "Fecha de Inicio"
         finish_date: "Fecha de Finalización"
+      course_module:
+        name: Nombre
+        description: Descripción
+        youtube_link: Link de YouTube
     #
     #
     #

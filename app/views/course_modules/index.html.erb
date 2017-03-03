@@ -14,8 +14,8 @@
     <% @course_modules.each do |course_module| %>
       <tr>
         <td><%= course_module.name %></td>
-        <td><%= link_to 'Show', course_module %></td>
-        <td><%= link_to 'Edit', edit_course_course_module_path(:course_id, course_module) %></td>
+        <td><%= link_to (t(:show)), course_module %></td>
+        <td><%= link_to (t(:edit)), edit_course_course_module_path(course_module.course, course_module) %></td>
         <td><%= link_to 'Add Quiz', new_course_module_quiz_path(course_module) %></td>
         <td><%= link_to 'List Quizzes', course_module_quizzes_path(course_module) %></td>
         <!-- <td><%= link_to 'Destroy', course_module, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
@@ -28,5 +28,5 @@
 
 <tr>
   <td><%= link_to 'New Course Module', new_course_course_module_path %></td>
-  <td><%= link_to 'Back', courses_path %></td>
+  <td><%= link_to (t(:back)), courses_path %></td>
 </tr>
