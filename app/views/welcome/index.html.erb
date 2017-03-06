@@ -11,11 +11,11 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#pricing" class="scroll">Pricing</a></li>
-            <li><%= link_to 'Registrarse', new_user_registration_es_path %></li>
             <% if current_user %>
               <li><%= link_to 'Cursos', courses_path %></li>
               <li><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
             <% else %>
+              <li><%= link_to 'Registrarse', new_user_registration_es_path %></li>
               <li><%= link_to 'Ingresar', new_user_session_path %></li>
             <% end %>
           </ul>
@@ -31,11 +31,11 @@
           </div>
           <div class="col-xs-6 signin text-right navbar-nav">
             <a href="#pricing" class="scroll">Pricing</a>
-            &nbsp; &nbsp;<%= link_to (t(:signup)), new_user_registration_es_path %>
             <% if current_user %> <!-- Perguntamos si esta logeado. Si está, muestra las opciones de poder ver los cursos y salir -->
               &nbsp; &nbsp;<%= link_to 'Cursos', courses_path %>
               &nbsp; &nbsp;<%= link_to (t(:logout)), destroy_user_session_path, method: :delete %>
             <% else %>
+              &nbsp; &nbsp;<%= link_to (t(:signup)), new_user_registration_es_path %>
               &nbsp; &nbsp;<%= link_to (t(:login)), new_user_session_path %> <!-- Si no está, le pide que inicie sesin -->
             <% end %>
           </div>
