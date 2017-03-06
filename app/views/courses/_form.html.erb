@@ -11,43 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field_name_course">
-    <%= f.label :name %>
+  <div class="field_name_course_nc">
+    <%= f.label :name, class: "lab_name_nc" %>
     <%= f.text_field :name %>
   </div>
 
-  <div class="field_number_resolution">
-    <%= f.label :no_resolution %>
+  <div class="field_number_resolution_nc">
+    <%= f.label :no_resolution, class: "lab_Nresol_nc" %>
     <%= f.text_field :no_resolution %>
   </div>
 
-  <div class="field">
-    <%= f.label :start_date %>
+  <div class="field_start_date_nc">
+    <%= f.label :start_date, class: "lab_startD_nc" %>
     <%= f.date_field :start_date %>
   </div>
 
-  <div class="field">
-    <%= f.label :finish_date %>
+  <div class="field_finish_date_nc">
+    <%= f.label :finish_date, class: "lab_finishD_nc" %>
     <%= f.date_field :finish_date %>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
+  <div class="field_description_nc">
+    <%= f.label :description, class: "lab_descrip_nc" %>
     <%= f.text_field :description %>
   </div>
 
-  <div class="field">
-    <%= f.label :image %>
+  <div class="field_image_nc">
+    <%= f.label :image, class: "lab_image_nc" %>
     <%= f.file_field :image %>
   </div>
 
-  <div class="field">
-    <%= f.label :modality_id %>
+  <div class="field_modality_id_nc">
+    <%= f.label :modality_id, class: "lab_modality_nc" %>
     <%= f.select :modality_id, modality_options %>
   </div>
 
-  <div class="field_number_resolution">
-    <%= f.label :resolution %>
+  <div class="field_file_resolution_nc">
+    <%= f.label :resolution, class: "lab_fresol_nc" %>
     <%= f.file_field :resolution %>
   </div>
 

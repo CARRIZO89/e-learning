@@ -1,5 +1,5 @@
 <div class="sign_up">
-<h2><%=t(:signup)%></h2>
+<h1><%=t(:signup)%></h1>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -27,16 +27,16 @@
     <div id="field_apellido_su">
       <%= g.text_field :last_name, autofocus: true, placeholder: "Apellido", class: "text_field_apellido_su" %>
     </div>
+    
+    <div id="field_dni_su">
+      <%= g.text_field :dni, autofocus: true, placeholder: "DNI", class: "text_field_dni_su" %>
+    </div>
 
     <div id="field_prov_su">
       <%= g.label :province_id, 'Province' %>
       <%= g.select :province_id, province_options %>
-
-    <div class="field">
-      <%= g.label :dni %><br />
-      <%= g.text_field :dni, autofocus: true %>
     </div>
-    
+  
     <% end %>
 
     <div id="actions_sign">

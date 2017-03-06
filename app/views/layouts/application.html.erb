@@ -37,7 +37,15 @@
 <!-- fin -->
 
   <body class="<%= current_user.role.name %>">
+  <%if current_user.role.name=="Admin"%>
   	<%= render 'shared/admin/menu' %>
+  <%else-%>
+    <%if current_user.role.name=="Teacher"%>
+      <%= render 'shared/teacher/menu' %>
+    <%else-%>
+      <%= render 'shared/student/menu' %>
+    <%end-%>
+  <%end-%>
     <header><h1 id="title_courses">Cursos</h1></header>
     <%= yield %>
   </body>
