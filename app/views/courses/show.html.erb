@@ -57,15 +57,14 @@
 
   <%= @course.image_file_name %>
   </p>
-<table>
+  <h3>Modulos</h3>
+  <table>
 
     <thead>
 
       <tr>
 
         <th>Name</th>
-
-        <th>Description</th>
 
         <th colspan="3"></th>
 
@@ -80,8 +79,6 @@
         <tr>
 
           <td><%= course_module.name %></td>
-
-          <td><%= course_module.description %></td>
 
           <td><%= link_to t(:show), course_module, class: "btn_show" %></td>
 
@@ -105,5 +102,8 @@
   <%= link_to (t(:back)), courses_path %>
   <% if current_user.role.name == 'Student' %>
     <%= link_to 'Register', new_course_inscription_path(@course), class: "btn_show_reg" %>
+  <% end -%>
+  <% if current_user.role.name == 'Teacher' %>
+   <%= link_to 'Add Modules', new_course_course_module_path(@course), class: "btn_add_modules" %>
   <% end -%>
 </div>

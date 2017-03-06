@@ -25,12 +25,7 @@
           <td><%= link_to t(:show), course, class: "btn_show" %></td>
           <% if current_user.role.name == 'Admin' %>
             <td><%= link_to t(:edit), edit_course_path(course), class: "btn_edit" %></td>
-          <% end -%>
-          <% if current_user.role.name == 'Teacher' %>
-            <td><%= link_to 'Add Modules', new_course_course_module_path(course), class: "btn_add_modules" %></td>
-            <td><%= link_to 'List Modules', course_course_modules_path(course), class: "btn_list_modules" %></td>
-          <% end -%>
-               
+          <% end -%>           
 
           <!-- <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
         </tr>

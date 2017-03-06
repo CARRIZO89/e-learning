@@ -1,6 +1,8 @@
-<h1>Editing Course Module</h1>
+<div class="edit_course">
+  <h1>Editing Course Module</h1>
 
-<%= render 'form', course_module: @course_module %>
+  <%= render 'form', course_module: @course_module %>
 
-<%= link_to (t(:show)), @course_module %> |
-<%= link_to (t(:back)), course_course_modules_es_path %>
+  <%= link_to (t(:show)), @course_module %> |
+  <%= link_to (t(:back)), course_es_path(@course_module.course) %>
+</div>
