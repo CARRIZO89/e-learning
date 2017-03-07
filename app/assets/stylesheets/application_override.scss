@@ -352,6 +352,7 @@ table > tbody > tr {
     width: 70%;
     float: right;
 }
+
 /*---------Log In----------*/
 
 .log_User, .sign_up, .forgot_password {
@@ -365,7 +366,7 @@ table > tbody > tr {
 
 .btn_log_in, .btn_sign_up {
     text-align: center;
-} 
+}
 
 .login_content h1, .sign_up h1, .forgot_password h2 {
     margin-bottom: 30px;
@@ -380,6 +381,7 @@ table > tbody > tr {
 .text_email, .text_password, .text_field_email_su, 
 .text_field_password_su, .text_field_confirPas_su, 
 .text_field_name_su, .text_field_apellido_su, .text_field_email_fp, .text_field_dni_su {
+
     width: 100%;
 }
 
@@ -490,7 +492,7 @@ table > tbody > tr {
 
 .btn_new_course_admin-ic {
     margin-right: 20px;
-    margin-left: 40px; 
+    margin-left: 40px;
 }
 
 .btns_ec {
@@ -510,15 +512,16 @@ table > tbody > tr {
 }
 
 /*--------Fin botones---------*/
+
 #title_courses {
     float: left;
     margin-left: 50px;
     color: #7387AB;
 }
 
-#opciones_tbl {
+#option {
     text-align: center;
 }
 #show_name_c {
     margin-left: 61px;
-} 
+}

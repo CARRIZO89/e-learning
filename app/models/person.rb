@@ -4,4 +4,7 @@ class Person < ApplicationRecord
   has_many :inscriptions
   has_many :courses, through: :inscriptions
 
+  def full_name
+    "#{last_name}, #{first_name}"
+  end
 end
