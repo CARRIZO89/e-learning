@@ -8,7 +8,7 @@
   <strong>Description:</strong>
   <%= @course_module.description %>
   <br>
-  <iframe id="ytplayer" type="text/html" width="640" height="390" src='<%= @course_module.link_to_embed %>?' autoplay=0 frameborder="0"></iframe>
+  <iframe id="ytplayer" type="text/html" width="640" height="390" src='<%= link_to_embed(@course_module.youtube_link) %>?' autoplay=0 frameborder="0"></iframe>
 </p>
 
 <%= link_to (t(:edit)), edit_course_course_module_path(@course_module.course, @course_module) %> |
