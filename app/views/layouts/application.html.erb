@@ -14,21 +14,10 @@
   <body class="nav-md <%= current_user.role.name %>">
     <div class="container body">
       <div class="main_container">
-        <%if current_user.role.name=="Admin"%>
-          <%= render 'shared/admin/menu' %>
-          <%= render 'shared/admin/sidebar' %>
-          <%= render 'shared/admin/top_nav' %>
-          <div class="right_col"><%= yield %></div>
-          <%= render 'shared/admin/footer' %>
-        <%else-%>
-          <%if current_user.role.name=="Teacher"%>
-            <%= render 'shared/teacher/menu' %>
-          <%else-%>
-            <%= render 'shared/student/menu' %>
-          <%end-%>
-        <%end-%>
-        <header><h1 id="title_courses">Cursos</h1></header>
-        <%= yield %>
+        <%= render 'shared/admin/sidebar' %>
+        <%= render 'shared/admin/top_nav' %>
+        <div class="right_col"><%= yield %></div>
+        <%= render 'shared/admin/footer' %>
       </div>
     </div>
     <%= javascript_include_tag 'application' %>

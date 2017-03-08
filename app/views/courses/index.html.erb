@@ -1,18 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="x_panel">
-      <div class="x_title">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="x_panel">
+        <div class="x_title">
         <h2>Lista de Cursos</h2>
-        <div class="clearfix"></div>
-      </div>
-      <div class="x_content">
-        <h1>Lista de Cursos</h1>
         <hr/>
         <% if current_user.role.name != 'Admin' && current_user.role.name != 'Teacher' %>
  
         <% else -%>
+        <div class="clearfix"></div>
+        </div>
+        <div class="x_content">       
         <table class="table table-striped courses">
           <thead>
             <tr>
@@ -39,15 +37,15 @@
                     <%= link_to 'List Modules', course_course_modules_path(course), class: 'btn btn-info btn-xs' %>
                   <% end -%>
                 </td>
-                <!-- <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
               </tr>
             <% end %>
+          <% end -%>
           </tbody>
         </table>
         <% if current_user.role.name == 'Admin' %>
           <%= link_to 'New Course', new_course_path, class: "btn_new_course-ic" %>
         <% end -%>
+        </div>
       </div>
     </div>
   </div>
-</div>
