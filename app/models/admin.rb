@@ -1,2 +1,2 @@
-class Admin < Person
+class AdminPerson < Person
 end
