@@ -1,3 +1,4 @@
+<div class="show_module">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,4 +12,5 @@
 </p>
 
 <%= link_to (t(:edit)), edit_course_course_module_path(@course_module.course, @course_module) %> |
-<%= link_to (t(:back)), course_course_modules_path(@course_module.course) %>
+<%= link_to (t(:back)), course_es_path(@course_module.course) %>
+</div>

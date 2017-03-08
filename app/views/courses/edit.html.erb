@@ -1,6 +1,9 @@
-<h1>Editing Course</h1>
-
-<%= render 'form', course: @course %>
-
-<%= link_to t(:show), @course %> |
-<%= link_to t(:back), courses_path %>
+<div class="edit_form_course">
+  <h1>Editar Curso</h1>
+  <hr/>
+  <%= render 'form', course: @course %>
+  <div class="btns_ec">
+   <%= link_to t(:show), @course, class: "btn_show_ec" %>
+   <%= link_to t(:back), courses_path, class: "btn_back_ec" %>
+  </div>
+</div>

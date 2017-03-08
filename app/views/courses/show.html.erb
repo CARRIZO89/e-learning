@@ -1,40 +1,109 @@
-<p id="notice"><%= notice %></p>
-<h1>Courses</h1>
-<p>
-  <strong>Name</strong>
+<div class="show_detail_course">
+  <p id="notice"><%= notice %></p>
+   <h1>Detalle del Curso</h1>
+   <hr/>
+  <p>
+      <strong>Name</strong>
+
   <%= @course.name %>
+
   <% if @course.no_resolution.nil? %>
+
     <br>
+
     <strong>Resolution Number</strong>
+
     <%= @course.no_resolution %>
+
   <% end -%>
+
   <br>
+
   <strong>Modality</strong>
+
   <%= @course.modality.name %>
+
   <br>
+
   <strong>Start Date</strong>
+
   <%= @course.start_date %>
+
   <br>
+
   <strong>Finish Date</strong>
+
   <%= @course.finish_date %>
+
   <br>
+
   <strong>Description</strong>
+
   <%= @course.description %>
+
   <br>
+
   <strong>Summary</strong>
   <%= @course.summary %>
   <br>
-  <strong>Resolution Name</strong>
-  <%= @course.resolution_file_name %>
-  <br>
-  <strong>Image Name</strong>
-  <%= @course.image_file_name %>
-</p>
 
-<% if current_user.role.name == 'Admin' %>
-  <%= link_to (t(:edit)), edit_course_path(@course) %> |
-<% end -%>
-<%= link_to (t(:back)), courses_path %>
-<% if current_user.role.name == 'Student' %>
-  <%= link_to 'Register', new_course_inscription_path(@course) %>
-<% end -%>
+  <strong>Resolution Name</strong>
+
+  <%= @course.resolution_file_name %>
+
+  <br>
+
+  <strong>Image Name</strong>
+
+  <%= @course.image_file_name %>
+  </p>
+  <h3>Modulos</h3>
+  <table>
+
+    <thead>
+
+      <tr>
+
+        <th>Name</th>
+
+        <th colspan="3"></th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <% @course.course_modules.each do |course_module| %>
+
+        <tr>
+
+          <td><%= course_module.name %></td>
+
+          <td><%= link_to t(:show), course_module, class: "btn_show" %></td>
+
+          <% if current_user.role.name == 'Teacher' %>
+
+            <td><%= link_to t(:edit), edit_course_course_module_path(course_module), class: "btn_edit" %></td>
+
+          <% end -%>
+
+        </tr>
+
+      <% end %>
+
+    </tbody>
+
+  </table>
+
+  <% if current_user.role.name == 'Admin' %>
+    <%= link_to (t(:edit)), edit_course_path(@course), class: "btn_show_edit" %> |
+  <% end -%>
+  <%= link_to (t(:back)), courses_path %>
+  <% if current_user.role.name == 'Student' %>
+    <%= link_to 'Register', new_course_inscription_path(@course), class: "btn_show_reg" %>
+  <% end -%>
+  <% if current_user.role.name == 'Teacher' %>
+   <%= link_to 'Add Modules', new_course_course_module_path(@course), class: "btn_add_modules" %>
+  <% end -%>
+</div>

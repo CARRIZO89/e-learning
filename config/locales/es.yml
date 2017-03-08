@@ -1,6 +1,7 @@
 es:
+  title: Silvano Capacitación Deportiva
   hello: "Hola Mundo"
-  admin_menu: "Panel de Administrador"
+  admin_menu: Administrador
   signup: "Registrarse"
   login: "Ingresar"
   logout: "Cerrar Sesión"
