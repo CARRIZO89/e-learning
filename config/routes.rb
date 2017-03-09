@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   localized do
     devise_for :users, controllers: { registrations: 'users/registrations' }
     
@@ -17,9 +19,5 @@ Rails.application.routes.draw do
     end
 
     root 'welcome#index'
-
-    namespace :admin do
-      resources :dashboard
-    end
   end
 end
