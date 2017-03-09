@@ -14,7 +14,6 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    puts ">>>>>> #{Person.subclasses}"
     f.inputs do
       f.semantic_fields_for :person, (f.object.person || f.object.build_person) do |a|
         a.input :first_name
