@@ -1,5 +1,4 @@
 ActiveAdmin.register User do
-  # belongs_to :person
   permit_params :email, :password, :password_confirmation, :role_id,
     person_attributes: [:first_name, :last_name, :dni, :province_id]
 
@@ -15,19 +14,19 @@ ActiveAdmin.register User do
   end
 
   form do |f|
+    puts ">>>>>> #{Person.subclasses}"
     f.inputs do
+      f.semantic_fields_for :person, (f.object.person || f.object.build_person) do |a|
+        a.input :first_name
+        a.input :last_name
+        a.input :dni
+        a.input :province_id, as: :select, collection: Province.all
+        a.input :type, as: :select, collection: [Student, Teacher]
+      end
       f.input :email
       f.input :password
       f.input :password_confirmation
       f.input :role_id, as: :select, collection: Role.all
-      f.inputs do
-        f.has_many :person, allow_destroy: true, new_record: true do |a|
-          a.input :first_name
-          a.input :last_name
-          a.input :dni
-          a.input :province_id, as: :select, collection: Province.all
-        end
-      end
     end
     f.actions
   end
