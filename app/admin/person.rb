@@ -2,6 +2,7 @@ ActiveAdmin.register Person do
   action_item :edit,  only: [ :edit ] do
     link_to "#{I18n.t('active_admin.edit_user')}", edit_admin_user_path(id: person.user.id)
   end
+  menu false
   permit_params :first_name, :last_name, :dni, :province_id, :type
 
   index do
