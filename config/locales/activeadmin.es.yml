@@ -12,6 +12,8 @@ es:
       call_to_action: "Para agregar secciones edite 'app/admin/dashboard.rb'"
     view: "Ver"
     edit: "Editar"
+    edit_person: "Editar Persona"
+    edit_user: "Editar Usuario"
     delete: "Eliminar"
     delete_confirmation: "¿Está seguro de que quiere eliminar esto?"
     new_model: "Añadir %{model}"

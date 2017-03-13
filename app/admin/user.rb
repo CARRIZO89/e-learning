@@ -1,6 +1,8 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation, :role_id,
-    person_attributes: [:first_name, :last_name, :dni, :province_id, :type]
+  action_item :edit,  only: [ :edit ] do
+    link_to "#{I18n.t('active_admin.edit_person')}", edit_admin_person_path(id: user.person.id)
+  end
+  permit_params :email, :password, :password_confirmation, :role_id
 
   index do
     column :id
@@ -15,13 +17,6 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs do
-      f.semantic_fields_for :person, (f.object.person || f.object.build_person) do |a|
-        a.input :first_name
-        a.input :last_name
-        a.input :dni
-        a.input :province_id, as: :select, collection: Province.all
-        a.input :type, as: :select, collection: [Student, Teacher]
-      end
       f.input :email
       f.input :password
       f.input :password_confirmation
