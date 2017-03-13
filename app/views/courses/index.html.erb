@@ -1,5 +1,5 @@
   <p id="notice"><%= notice %></p>
-  <div class="row">
+  <!--<div class="row">
     <div class="col-md-12">
       <div class="x_panel">
         <div class="x_title">
@@ -33,4 +33,37 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
+  <!--///////////////////////////////////////////////-->
+  <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Cursos<small> Galeria </small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="row">
+                    <% @courses.each do |course| %>
+                      <div class="col-md-55">
+                        <div class="thumbnail">
+                          <div class="image view view-first">
+                            <img style="width: 100%; height: 100%; display: block;" src="<%=image_url(course.image.url(:original))%>" alt="image">
+                            <div class="mask">
+                              <p><%= course.name %></p>
+                              <p>Inicia<br/><%= course.start_date %></p>
+                            </div>
+                          </div>
+                          <div class="caption">
+                            <p><strong><%= course.name %></strong></p>
+                            <%= link_to t(:show), course, class: "btn btn-primary btn-xs" %>
+                          </div>
+                        </div>
+                      </div>
+                     <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+</div>

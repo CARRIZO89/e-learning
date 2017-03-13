@@ -1,4 +1,4 @@
-<div class="show_module">
+<!--<div class="show_module">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -13,4 +13,52 @@
 
 <%= link_to (t(:edit)), edit_course_course_module_path(@course_module.course, @course_module) %> |
 <%= link_to (t(:back)), course_es_path(@course_module.course) %>
-</div>
+</div>-->
+<!--/////////////////////////////////////-->
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> <%= @course_module.name %> <small>Float left</small></h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <div class="col-xs-3">
+                      <!-- required for floating -->
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs tabs-left">
+                        <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Descripción</a>
+                        </li>
+                        <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Video</a>
+                        </li>
+                        <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false">Material de Estudio</a>
+                        </li>
+                        <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">Quiz</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="col-xs-9">
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                          <p class="lead">Descripción</p>
+                          <p><%= @course_module.description %></p>
+                        </div>
+                        <div class="tab-pane" id="profile">
+                          <p class="lead">Video</p>
+                          <iframe id="ytplayer" type="text/html" width="640" height="390" src='<%= link_to_embed(@course_module.youtube_link) %>?' autoplay=0 frameborder="0"></iframe>
+                        </div>
+                        <div class="tab-pane" id="messages">Messages Tab.</div>
+                        <div class="tab-pane" id="settings">Settings Tab.</div>
+                      </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <%= link_to (t(:back)), course_es_path(@course_module.course), class: "btn_back_cmod" %>
+                    <%= link_to (t(:edit)), edit_course_course_module_path(@course_module.course, @course_module), class: "btn_edit_cmod" %> 
+                  </div>
+                </div>
+              </div>

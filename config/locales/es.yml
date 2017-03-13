@@ -1,4 +1,5 @@
 es:
+  show_icon_html: <i class="fa fa-eye"></i>
   title: Silvano Capacitación Deportiva
   hello: "Hola Mundo"
   admin_menu: Administrador

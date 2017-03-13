@@ -11,7 +11,7 @@
 
 
 /*---------Botones (btn/accion que hace/view a la que pertenece)----------*/
-.btn_show, .btn_edit, .btn_show_reg, .btn_action, .btn_add_modules, .btn_list_modules { /*---btns verdes---*/
+.btn_show, .btn_edit, .btn_action, .btn_add_modules, .btn_list_modules { /*---btns verdes---*/
   display: inline-block;
   padding: 10px 15px;
   font-size: 14px;
@@ -131,4 +131,41 @@
 }
 #show_name_c {
     margin-left: 61px;
+}
+
+/*----------Show Courses------------*/
+.btn_back_sc, .btn_show_reg, .btn_back_cmod, .btn_edit_cmod {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+      border-top-color: rgb(46, 109, 164);
+      border-right-color: rgb(46, 109, 164);
+      border-bottom-color: rgb(46, 109, 164);
+      border-left-color: rgb(46, 109, 164);
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px
+}
+
+.btn_show_reg, .btn_edit_cmod {
+  background-color: #60BAA7;
+}
+.thumbnail {
+    height: 200px;
+}
+.summary, .description {
+  word-wrap: break-word;
+}
+
+li {
+  list-style-type: none;
+}
+
+.description_course {
+  width: 98%;
+  margin: 0 auto;
+  background-color: #FFF;
+  border: 1px solid #E6E9ED;
+  margin-bottom: 10px;
 }
