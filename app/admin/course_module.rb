@@ -1,5 +1,5 @@
 ActiveAdmin.register CourseModule do
-  permit_params :name, :description, :youtube_link
+  permit_params :name, :description, :youtube_link, :course_id
 
   index do
     column :id

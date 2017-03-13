@@ -1,13 +1,11 @@
 ActiveAdmin.register Person do
   belongs_to :user
-  
   config.action_items.delete_if { |item| item.display_on?(:show) }
 
   action_item :edit,  only: [ :show ] do
     link_to "#{I18n.t('active_admin.edit')}", edit_admin_user_path(id: params[:user_id])
   end
-
-  permit_params :first_name, :last_name, :dni, :province_id
+  permit_params :first_name, :last_name, :dni, :province_id, :type
 
   index do
     column :id

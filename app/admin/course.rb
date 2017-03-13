@@ -7,9 +7,11 @@ ActiveAdmin.register Course do
     column :name
     column :summary
     column :no_resolution
-    column :modality_id
     column :start_date
     column :finish_date
+    column I18n.t "courses.module_quantity" do |c|
+      c.course_modules.count
+    end
     actions
   end
 
@@ -18,8 +20,10 @@ ActiveAdmin.register Course do
       f.input :modality_id, as: :select, collection: Modality.all
       f.input :name
       f.input :no_resolution
-      f.input :start_date
-      f.input :finish_date
+      f.input :resolution
+      f.input :image
+      f.input :start_date, as: :datepicker
+      f.input :finish_date, as: :datepicker
       f.input :description
       f.input :summary
     end

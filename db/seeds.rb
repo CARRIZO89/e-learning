@@ -8,7 +8,7 @@ roles = Role.create([{name: 'Teacher'}, {name: 'Student'}, {name: 'Guest'}])
 puts 'Creating Modalities...'
 Modality.create([{name: 'Informe'}, {name: 'Multiple Choice'}, {name: 'Cuestionario Abierto'}, {name: 'No tiene'}])
 puts 'Creating Users...'
-User.create([{email: 'teacher@example.com', password: 'teacher123', role_id: 2, person_id: 1},
-            {email: 'student@example.com', password: 'student123', role_id: 3, person_id: 2}])
+User.create([{email: 'teacher@example.com', password: 'teacher123', role_id: 1, person_id: 1},
+            {email: 'student@example.com', password: 'student123', role_id: 2, person_id: 2}])
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 puts 'Done!'

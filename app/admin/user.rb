@@ -1,5 +1,4 @@
 ActiveAdmin.register User do
-  # belongs_to :person
   permit_params :email, :password, :password_confirmation, :role_id,
     person_attributes: [:first_name, :last_name, :dni, :province_id, :type]
 
