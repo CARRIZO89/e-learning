@@ -6,7 +6,7 @@ es:
     models:
       answer: Respuesta
       course: Curso
-      course_module: Modulo
+      course_module: Módulo
       inscription:
         one: Inscripción
         other: Inscriptiones
@@ -20,6 +20,10 @@ es:
         one: Rol
         other: Roles
       user: Usuario
+      student: Alumno
+      teacher: Profesor
+      modality: Modalidad
+      comment: Comentario
     #
     #
     #

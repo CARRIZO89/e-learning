@@ -7,7 +7,7 @@ es:
     sign_in: ingresar
     sign_up: registrarse
     # routes
-    admin: administrador
+    admin: admin
     answers: respuestas
     course_modules: modulos
     courses: cursos
