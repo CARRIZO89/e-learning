@@ -15,6 +15,25 @@ ActiveAdmin.register Course do
     actions
   end
 
+  show do
+    tabs do
+      tab I18n.t "courses.show" do
+        attributes_table do
+          default_attribute_table_rows.each do |field|
+            row field
+          end
+        end
+      end
+      tab I18n.t "course_modules.index" do
+        table_for course.course_modules do
+          column :id
+          column :name
+          column :description
+        end
+      end
+    end
+  end
+
   form do |f|
     f.inputs do
       f.input :modality_id, as: :select, collection: Modality.all

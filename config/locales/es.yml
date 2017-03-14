@@ -17,6 +17,7 @@ es:
   edit: "Modificar"
   courses:
     title: "Cursos"
+    show: "Detalle del Curso"
     new_course: "Agregar Curso"
     list_course: "Lista de Cursos"
     add_modules: "Agregar Módulo"
@@ -29,6 +30,7 @@ es:
     finish_date: "Fecha de Finalización"
     module_quantity: "Total de Módulos"
   course_modules:
+    index: "Módulos"
     name: "Nombre"
     description: "Descripción"
     add_quiz: "Agrega Cuestionario"
