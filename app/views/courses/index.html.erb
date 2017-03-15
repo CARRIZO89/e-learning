@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="x_panel">
         <div class="x_title">
-        <h2>Lista de Cursos</h2>
+        <h1><%=t('courses.title')%></h1>
         <hr/>
         <% if current_user.role.name != 'Admin' && current_user.role.name != 'Teacher' %>
  
@@ -14,10 +14,10 @@
         <table class="table table-striped courses">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Start Date</th>
-              <th>Modality</th>
-              <th></th>
+              <th><%=t('courses.name')%></th>
+              <th><%=t('courses.start_date')%></th>
+              <th><%=t('courses.modality')%></th>
+              <th colspan="3"></th>
             </tr>
           </thead>
 

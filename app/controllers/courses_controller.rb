@@ -25,6 +25,7 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    @course.topic_list.add(course_params[:topic_list], parse: true)
 
     respond_to do |format|
       if @course.save
@@ -69,6 +70,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :no_resolution, :modality_id, :resolution, :start_date, :finish_date, :summary, :description, :image)
+      params.require(:course).permit(:name, :no_resolution, :modality_id, :resolution, :start_date, :finish_date, :summary, :description, :image, :topic_list)
     end
 end

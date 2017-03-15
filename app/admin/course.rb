@@ -1,6 +1,6 @@
 ActiveAdmin.register Course do
-  permit_params :name, :no_resolution, :modality_id, :resolution, :start_date, :finish_date, 
-                :summary, :description, :image
+  permit_params :name, :no_resolution, :modality_id, :resolution, :start_date, :finish_date,
+                :summary, :description, :image, :topic_list
 
   index do
     column :id
@@ -45,6 +45,7 @@ ActiveAdmin.register Course do
       f.input :finish_date, as: :datepicker
       f.input :description
       f.input :summary
+      f.input :topic_list, input_html: { value: f.object.topic_list.join(', ') }
     end
     f.actions
   end
