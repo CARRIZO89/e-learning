@@ -2,43 +2,42 @@
   <p id="notice"><%= notice %></p>
    <h1>Course</h1>
    <hr/>
- </div>
+</div>
 <!--//////////////////////////////////////////-->
 <div class="description_course">
   <h2><%= t ('courses.course_detail') %></h2>
   <hr/>
-            <p>
-            <strong><%= t ('courses.name') %></strong>
+  <p>
+    <strong><%= t ('courses.name') %></strong>
+    <%= @course.name %>
+    <% if @course.no_resolution.nil? %>
+    <br>
 
-            <%= @course.name %>
-            <% if @course.no_resolution.nil? %>
-            <br>
-
-            <strong><%= t ('courses.resolution_number') %></strong>
-            <%= @course.no_resolution %>
-            <% end -%>
-            <br>
-            <strong><%= t ('courses.modality') %></strong>
-            <%= @course.modality.name %>
-            <br/>
-            <strong><%= t ('courses.start_date') %></strong>
-            <%= @course.start_date %>
-            <br/>
-            <strong><%= t ('courses.finish_date') %></strong>
-            <%= @course.finish_date %>
-            <br/>
-            <strong><%= t ('courses.summary') %></strong>
-            <p class="summary"><%= @course.summary %></p>
-            <br/>
-            <strong><%= t ('courses.description') %></strong>
-            <p class="description"><%= @course.description %></p>
-            <br/>
-            <strong><%= t ('courses.resolution') %></strong>
-            <%= @course.resolution_file_name %>
-            <br/>
-            <strong><%= t ('courses.image') %></strong>
-            <%= @course.image_file_name %>
-            </p>
+    <strong><%= t ('courses.resolution_number') %></strong>
+    <%= @course.no_resolution %>
+    <% end -%>
+    <br>
+    <strong><%= t ('courses.modality') %></strong>
+    <%= @course.modality.name %>
+    <br/>
+    <strong><%= t ('courses.start_date') %></strong>
+    <%= @course.start_date %>
+    <br/>
+    <strong><%= t ('courses.finish_date') %></strong>
+    <%= @course.finish_date %>
+    <br/>
+    <strong><%= t ('courses.summary') %></strong>
+    <p class="summary"><%= @course.summary %></p>
+    <br/>
+    <strong><%= t ('courses.description') %></strong>
+    <p class="description"><%= @course.description %></p>
+    <br/>
+    <strong><%= t ('courses.resolution') %></strong>
+    <%= @course.resolution_file_name %>
+    <br/>
+    <strong><%= t ('courses.image') %></strong>
+    <%= @course.image_file_name %>
+  </p>
 </div>
 <% @course.course_modules.each_with_index do |course_module, index| %>
   <div class="col-md-12 col-sm-6 col-xs-12">
