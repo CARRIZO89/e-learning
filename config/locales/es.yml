@@ -1,4 +1,5 @@
 es:
+  show_icon_html: <i class="fa fa-eye"></i>
   title: Silvano Capacitación Deportiva
   hello: "Hola Mundo"
   admin_menu: Administrador
@@ -8,6 +9,7 @@ es:
   forgot_password: "No te acordás tu contraseña?"
   confirmation: "No recibiste el mail de confirmación?"
   welcome: "Bienvenido,"
+  list_courses: "Lista de Cursos"
   profile: "Mi Cuenta"
   settings: "Configuración"
   help: "Ayuda"
@@ -18,6 +20,7 @@ es:
   are_you_sure: "Está seguro?"
   courses:
     title: "Cursos"
+    course_detail: "Detalle del Curso"
     show: "Detalle del Curso"
     new_course: "Agregar Curso"
     edit_course: "Actualizar Curso"
@@ -36,6 +39,12 @@ es:
     image_name: "Banner"
     tags: "Etiquetas"
     module_quantity: "Total de Módulos"
+    summary: "Resumen"
+    resolution: "Resolución"
+    image: "Imagen"
+    description: "Descripción"
+    module: "Modulo"
+    gallery: "Galeria"
   course_modules:
     index: "Módulos"
     name: "Nombre"
@@ -43,3 +52,5 @@ es:
     add_quiz: "Agrega Cuestionario"
     list_quizzes: "Mostrar Cuestionarios"
     add_modules: "Agregar Módulo"
+    course_files: "Material del Curso"
+    quiz: "Evaluativo"
