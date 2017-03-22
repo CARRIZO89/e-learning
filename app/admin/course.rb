@@ -1,6 +1,6 @@
 ActiveAdmin.register Course do
   permit_params :name, :no_resolution, :modality_id, :resolution, :start_date, :finish_date,
-                :summary, :description, :image, :topic_list
+                :summary, :description, :image, :topic_list, teacher_ids: []
 
   index do
     column :id
@@ -31,6 +31,12 @@ ActiveAdmin.register Course do
           column :description
         end
       end
+      tab I18n.t "courses.teachers" do
+        table_for course.teachers do
+          column :full_name
+          column :dni
+        end
+      end
     end
   end
 
@@ -45,6 +51,7 @@ ActiveAdmin.register Course do
       f.input :finish_date, as: :datepicker
       f.input :description
       f.input :summary
+      f.input :teachers, as: :check_boxes, collection: Teacher.all.map {|u| [u.full_name.to_s, u.id]}, multiple: true
       f.input :topic_list, input_html: { value: f.object.topic_list.join(', ') }
     end
     f.actions

@@ -39,10 +39,9 @@ es:
     image_name: "Banner"
     tags: "Etiquetas"
     module_quantity: "Total de Módulos"
-    summary: "Resumen"
+    teachers: "Profesores asociados"
     resolution: "Resolución"
     image: "Imagen"
-    description: "Descripción"
     module: "Modulo"
     gallery: "Galeria"
   course_modules:
