@@ -20,7 +20,7 @@
             <li class="features first">Número de Resolución <%= course.no_resolution %></li><!--Tomamos el n° de resolucion de cada elemento-->
             <li class="features">Fecha de Inicio <%= course.created_at %></li><!--Tomamos la fecha de inicio de cada elemento-->
             <li class="features last btn btn-secondary btn-wide">
-              <%= link_to 'INSCRIBIRSE', new_course_inscription_path(course) %>
+              <%= link_to 'INSCRIBIRSE', new_inscription_path(course) %>
             </li>
           </ul>
         </div>

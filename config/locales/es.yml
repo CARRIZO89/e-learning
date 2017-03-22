@@ -31,6 +31,8 @@ es:
     description: "Descripción"
     summary: "Resumen"
     resolution_number: "Número de Resolución"
+    resolution_info: "Detalle de la Resolución"
+    banner_info: "Detalle del Banner"
     modality: "Modalidad de Aprobación"
     register: "Inscribirse"
     start_date: "Fecha de Inicio"
@@ -53,3 +55,8 @@ es:
     add_modules: "Agregar Módulo"
     course_files: "Material del Curso"
     quiz: "Evaluativo"
+  inscriptions:
+    index: "Inscripciones"
+    course: "Curso"
+    person: "Estudiante"
+    created_at: "Fecha de Inscripción"
