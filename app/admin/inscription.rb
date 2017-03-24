@@ -1,7 +1,7 @@
 ActiveAdmin.register Inscription do
   permit_params :course_id, :person_id
 
-  filter :person_id, as: :select, collection: Person.where(type: "Student")
+  filter :person_id, as: :select, collection: Student.all
   filter :course_id, as: :select, collection: Course.all
 
   index do

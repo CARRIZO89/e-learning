@@ -60,7 +60,9 @@ ActiveAdmin.register Course do
           row :banner do |banner|
             image_tag banner.image.url
           end
-          
+        end
+      end
+
       tab I18n.t "courses.teachers" do
         table_for course.teachers do
           column :full_name
