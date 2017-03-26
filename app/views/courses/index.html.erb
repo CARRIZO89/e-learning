@@ -6,6 +6,19 @@
         <h2>Cursos<small><%= t('courses.gallery') %></small></h2>
         <div class="clearfix"></div>
       </div>
+      <div>
+        <%= form_for :filter, url: courses_path, method: :get do |f| %>
+
+          <div class="form-inputs">
+            <%= f.select :no_resolution, label: 'Resolution Number', include_blank: '- Choose -' %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit %>
+          </div>
+        <% end %>
+      </div>
+
       <div class="x_content">
         <div class="row">
           <% @courses.each do |course| %>

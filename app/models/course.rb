@@ -16,4 +16,6 @@ class Course < ApplicationRecord
   acts_as_ordered_taggable # Alias for acts_as_taggable_on :tags
   acts_as_ordered_taggable_on :topics
 
+  scope :no_resolution, -> { where(:no_resolution => true) }
+
 end

@@ -1,10 +1,11 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  has_scope :no_resolution, :type => :boolean
 
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = apply_scopes(Course).all
   end
 
   # GET /courses/1
