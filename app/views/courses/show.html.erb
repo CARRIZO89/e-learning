@@ -7,13 +7,14 @@
 
     <div class="x_content">
       <div class="col-md-12 col-sm-12 col-xs-12">
+        <p class="title"><%= image_tag @course.image.url(:original), size: "1000x300" %></p>
         <p><%= @course.description %></p>
         <div class="project_detail">
           <p class="title"><%= t('activerecord.attributes.course.modality_id') %></p>
           <p><%= @course.modality_name.humanize %></p>
-          <% if @course.no_resolution? %>
-            <p class="title"><%= t('activerecord.attributes.course.no_resolution') %></p>
-            <p><%= link_to @course.no_resolution, @course.resolution.url, target: '_blank' %></p>
+          <% if @course.resolution_number? %>
+            <p class="title"><%= t('activerecord.attributes.course.resolution_number') %></p>
+            <p><%= link_to @course.resolution_number, @course.resolution.url, target: '_blank' %></p>
           <% end %>
           <p class="title"><%= t('activerecord.attributes.course.start_date') %></p>
           <p><%= @course.start_date.strftime('%d %b. %Y') %></p>
@@ -23,7 +24,6 @@
     </div>
   </div>
 </div>
-
 <!--//////////////////////////////////////////-->
 <% @course.course_modules.each_with_index do |course_module, index| %>
   <div class="row">
