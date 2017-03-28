@@ -16,11 +16,25 @@ es:
       tabs:
         active_courses: Cursando
         completed_courses: Cursos Completados
-    student_course_tab:
+    teacher_tabs:
+      tabs:
+        active_courses: Dictando
+        completed_courses: Cursos Completados
+    student_active_courses_tabcontent:
       table:
         th:
           course_name: Nombre del Curso
           progress: Progreso
-          no_inscriptions: Número de Inscripciones
           teachers: Profesores
           finish_date: Finaliza
+    teacher_active_courses_tabcontent:
+      table:
+        th:
+          course_name: Nombre del Curso
+          no_inscriptions: Número de Inscripciones
+          finish_date: Finaliza
+    teacher_completed_courses_tabcontent:
+      table:
+        th:
+          course_name: Nombre del Curso
+          teachers: Profesores
