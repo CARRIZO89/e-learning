@@ -10,6 +10,10 @@ class Course < ApplicationRecord
   has_many :course_modules
   has_many :inscriptions
   has_many :people, through: :inscriptions
+  has_and_belongs_to_many :teachers, class_name: "Person"
   belongs_to :modality
+
+  acts_as_ordered_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_ordered_taggable_on :topics
 
 end

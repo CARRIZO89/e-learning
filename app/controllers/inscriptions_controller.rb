@@ -1,11 +1,10 @@
 class InscriptionsController < ApplicationController
-  before_action :set_course, except: [:show, :edit, :update, :destroy]
   before_action :set_inscription, only: [:show, :edit, :update, :destroy]
 
   # GET /inscriptions
   # GET /inscriptions.json
   def index
-    @inscriptions = @course.inscriptions
+    @inscriptions = Inscription.where(person: current_person)
   end
 
   # GET /inscriptions/1
@@ -25,7 +24,7 @@ class InscriptionsController < ApplicationController
   # POST /inscriptions
   # POST /inscriptions.json
   def create
-    @inscription = @course.inscriptions.build(person: current_person)
+    @inscription = Inscription.new(person: current_person, course_id: inscription_params[:course_id])
 
     respond_to do |format|
       if @inscription.save
@@ -64,12 +63,11 @@ class InscriptionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:course_id])
-    end
     def set_inscription
       @inscription = Inscription.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
+    def inscription_params
+      params.require(:inscription).permit(:course_id)
+    end
 end

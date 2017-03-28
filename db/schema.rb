@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314135949) do
+ActiveRecord::Schema.define(version: 20170320170758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20170314135949) do
     t.string   "no_resolution"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.integer  "person_id"
     t.integer  "modality_id"
     t.string   "resolution_file_name"
     t.string   "resolution_content_type"
@@ -84,13 +83,23 @@ ActiveRecord::Schema.define(version: 20170314135949) do
     t.date     "finish_date",             null: false
     t.text     "description"
     t.string   "summary"
+    t.date     "start_inscription_date"
+    t.date     "finish_inscription_date"
     t.index ["modality_id"], name: "index_courses_on_modality_id", using: :btree
-    t.index ["person_id"], name: "index_courses_on_person_id", using: :btree
+  end
+
+  create_table "courses_people", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "inscriptions", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "person_id"
+    t.integer  "course_id"
+    t.integer  "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_inscriptions_on_course_id", using: :btree
     t.index ["person_id"], name: "index_inscriptions_on_person_id", using: :btree
   end
@@ -186,7 +195,6 @@ ActiveRecord::Schema.define(version: 20170314135949) do
   add_foreign_key "answers", "questions"
   add_foreign_key "course_modules", "courses"
   add_foreign_key "courses", "modalities"
-  add_foreign_key "courses", "people"
   add_foreign_key "inscriptions", "courses"
   add_foreign_key "inscriptions", "people"
   add_foreign_key "people", "provinces"

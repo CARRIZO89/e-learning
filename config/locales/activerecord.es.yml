@@ -9,7 +9,7 @@ es:
       course_module: Módulo
       inscription:
         one: Inscripción
-        other: Inscriptiones
+        other: Inscripciones
       person: Persona
       province: Provincia
       question: Pregunta
@@ -46,13 +46,20 @@ es:
         no_resolution: Número de Resolución
         modality_id: Modalidad de Aprobación
         description: Descripción
+        topic_list: Etiquetas (separadas por coma)
         summary: Resumen
-        start_date: Fecha de Inicio
-        finish_date: Fecha de Finalización
+        start_date: Inicio de Cursado
+        finish_date: Finalización de Cursado
+        start_inscription_date: Inicio de Inscripciones
+        finish_inscription_date: Cierre de Inscripciones
       course_module:
         name: Nombre
         description: Descripción
         youtube_link: Link de YouTube
+      inscriptions:
+        course_id: Curso
+        person_id: Estudiante
+        created_at: Fecha de Inscripción
     #
     #
     #

@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  pass_points: 1
-  time_in_seconds: 1
-
-two:
-  pass_points: 1
-  time_in_seconds: 1

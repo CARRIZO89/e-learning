@@ -39,8 +39,8 @@ be-the-first {
     background: url(whatiscrossfit.jpg);
     background-repeat: no-repeat;
     background-size: cover;   
-	padding-bottom: 0px;
-	padding-top: 0px;
+	  padding-bottom: 0px;
+	  padding-top: 0px;
 }
 
 #invite {
@@ -53,4 +53,29 @@ be-the-first {
 
 }
 
+header img {
+  margin-top: -20px;
+}
 
+.contact_title {
+  text-align: center;
+  color: black;
+}
+
+textarea {
+  width: 46%;
+  margin-left: 15px;
+  float: left;
+}
+
+textarea:focus { 
+    outline: none;
+    box-shadow: 0 0 10px #66afe9;
+    border: 1px solid #66afe9;
+}
+
+.form-control {
+  border-radius: 0;
+  border: 1px solid #BBB7B3;
+
+}

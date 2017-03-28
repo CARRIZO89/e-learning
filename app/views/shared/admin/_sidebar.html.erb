@@ -28,10 +28,11 @@
         <h3>General</h3>
         <ul class="nav side-menu" style="">
 
-          <li class="active"><a><i class="fa fa-list"></i>Courses <span class="fa fa-chevron-down"></span></a>
+          <li class="active"><a><i class="fa fa-list"></i>Cursos<span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: block;">
-              <li class="current-page"><%= link_to 'New Course', new_course_path %></li>
-              <li><%= link_to 'List Courses', courses_path %></li>
+              <!--<li class="current-page"><%= link_to 'New Course', new_course_path %></li>-->
+              <li><%= link_to (t('inscriptions.index')), courses_path %></li>
+              <li><%= link_to (t(:list_courses), inscriptions_path %></li>
             </ul>
           </li>
         </ul>

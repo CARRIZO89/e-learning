@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,10 +27,10 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-6">
-            <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
+            <%= image_tag 'logo.png' %>
           </div>
           <div class="col-xs-6 signin text-right navbar-nav">
-            <a href="#pricing" class="scroll">Pricing</a>
+            <a href="#pricing" class="scroll">Precios</a>
             <% if current_user %> <!-- Perguntamos si esta logeado. Si está, muestra las opciones de poder ver los cursos y salir -->
               &nbsp; &nbsp;<%= link_to 'Cursos', courses_path %>
               &nbsp; &nbsp;<%= link_to (t(:logout)), destroy_user_session_path, method: :delete %>
@@ -59,16 +59,15 @@
                   </div>
                 </div><!--End Button Row-->  
               </div>
-            </div>
-            
+            </div>  
           </div>
         </div>
       </div>
     </header>
     
     <div class="mouse-icon hidden-xs">
-        <div class="scroll"></div>
-      </div>
+      <div class="scroll"></div>
+    </div>
     
     <section id="be-the-first" class="pad-xl">
       <div class="container">
@@ -135,12 +134,10 @@
           </div>
         </div>
       </div>
-    </section>
-        
+    </section>   
         
     <!--Pricing-->
     <%= render 'pricing', last_courses: @last_courses %>
-   
     <section id="invite" class="pad-lg light-gray-bg">
       <div class="container">
         <div class="row">
@@ -150,17 +147,68 @@
             <br />
             <p class="black">Ponte en contacto con nosotros. Tu consulta nos ayuda a crecer.</p>
             <br />
-            
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <form role="form">
-                  <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                  
+                    <div class="x_content">
+                      <br>
+                      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="first-name" required="required" class="form-control col-md-7 col-xs-12" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="email" class="form-control" name="email" data-parsley-trigger="change" required="required" type="email">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Course of interest <span class="required">*</span>
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control" data-parsley-trigger="change" required="required" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Affair 
+                          </label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control" data-parsley-trigger="change" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Message <span class="required">*</span>
+                          </label>
+                          <div class="text_area"><textarea name="Mensaje" cols="40" rows="6" class="Textos" wrap="hard"></textarea></div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button class="btn btn-primary" type="button">Cancel</button>
+                            <button class="btn btn-primary" type="reset">Reset</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                          </div>
+                        </div>
+
+                      </form>
+                    </div>
                   </div>
-                  <button type="submit" class="btn btn-primary btn-lg">Contacto</button>
-                </form>
-              </div>
-            </div><!--End Form row-->
+            </div>
+            <!--End Form row-->
            <div class="content_bottompart">
               <div class="col-md-12 contact_info">
                 <h3>ESTAMOS AQUI</h3>
@@ -170,7 +218,7 @@
                     <small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#8C8061;text-align:left;font-size:1em">View Larger Map</a></small></div>
                 </div>
               </div>
-            </div>
+           </div>
           </div>
         </div>
       </div>

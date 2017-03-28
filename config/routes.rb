@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
     devise_for :users, controllers: { registrations: 'users/registrations' }
     
+    resources :inscriptions, except: [:show, :destroy]
     resources :courses do
       resources :course_modules, except: [:show, :destroy]
-      resources :inscriptions, except: [:show, :destroy]
     end
     resources :course_modules, only: [:show, :destroy] do
       resources :quizzes
