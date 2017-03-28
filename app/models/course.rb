@@ -20,6 +20,18 @@ class Course < ApplicationRecord
   acts_as_ordered_taggable # Alias for acts_as_taggable_on :tags
   acts_as_ordered_taggable_on :topics
 
+  def teacher_names
+    teachers.map(&:full_name)
+  end
+
+  def count_inscriptions
+    inscriptions.count
+  end
+
+  def count_modules
+    course_modules.count
+  end
+
   def display_duration
     return I18n.t('activerecord.attributes.course.duration.days', days: duration_in_days) if duration_in_days < 14
     return I18n.t('activerecord.attributes.course.duration.weeks', weeks: duration_in_weeks) if duration_in_weeks < 12

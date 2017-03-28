@@ -1,0 +1,22 @@
+<div class="" role="tabpanel" data-example-id="togglable-tabs">
+  <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#active-courses" role="tab" id="course-tab" data-toggle="tab" aria-expanded="false">
+        <%= t('.tabs.active_courses') %>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#completed-courses" role="tab" id="course-tab" data-toggle="tab" aria-expanded="false">
+        <%= t('.tabs.completed_courses') %>
+      </a>
+    </li>
+  </ul>
+  <div id="myTabContent" class="tab-content">
+    <div role="tabpanel" class="tab-pane fade active in" id="active-courses" aria-labelledby="course-tab">
+      <%= render "#{current_user.type.downcase}_active_courses_tabcontent" %>
+    </div>
+    <div role="tabpanel" class="tab-pane fade in" id="completed-courses" aria-labelledby="course-tab">
+      <%= render "#{current_user.type.downcase}_completed_courses_tabcontent" %>
+    </div>
+  </div>
+</div>

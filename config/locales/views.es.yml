@@ -4,3 +4,22 @@ es:
       course_title: "Curso: %{name}"
       description_title: Descripción del Curso
       modules_title: Modulos
+  users:
+    show:
+      page_title: Perfil de Usuario
+      report_title: Reporte de Usuario
+      report_subtitle: Reporte de actividad
+      edit_profile: Editar Perfil
+      course_tab: Ultimos Cursos Activos
+    student_tabs:
+      tabs:
+        active_courses: Cursando
+        completed_courses: Cursos Completados
+    student_course_tab:
+      table:
+        th:
+          course_name: Nombre del Curso
+          progress: Progreso
+          no_inscriptions: Número de Inscripciones
+          teachers: Profesores
+          finish_date: Finaliza
