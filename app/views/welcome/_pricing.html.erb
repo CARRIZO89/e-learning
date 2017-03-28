@@ -17,7 +17,7 @@
             <li class="headline"><h5 class="white">Curso de <%= course.name %></h5></li><!--Tomamos el nombre de cada elemento-->
             <li class="price"><div class="amount">$5<small>/m</small></div></li>
             <li class="info">2 row section for you package information. You can include all details or icons</li>
-            <li class="features first">Número de Resolución <%= course.no_resolution %></li><!--Tomamos el n° de resolucion de cada elemento-->
+            <li class="features first">Número de Resolución <%= course.resolution_number %></li><!--Tomamos el n° de resolucion de cada elemento-->
             <li class="features">Fecha de Inicio <%= course.created_at %></li><!--Tomamos la fecha de inicio de cada elemento-->
             <li class="features last btn btn-secondary btn-wide">
               <%= link_to 'INSCRIBIRSE', new_inscription_path(course) %>

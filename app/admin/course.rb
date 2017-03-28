@@ -1,11 +1,11 @@
 ActiveAdmin.register Course do
-  permit_params :name, :no_resolution, :modality_id, :resolution, :start_date, :finish_date,
+  permit_params :name, :resolution_number, :modality_id, :resolution, :start_date, :finish_date,
                 :summary, :description, :image, :topic_list, :start_inscription_date, :finish_inscription_date, teacher_ids: []
 
   index do
     column :id
     column :name
-    column :no_resolution
+    column :resolution_number
     column :start_inscription_date
     column :finish_inscription_date
     column :start_date
@@ -17,11 +17,11 @@ ActiveAdmin.register Course do
 
   show do
     tabs do
-      tab I18n.t "courses.show" do
+      tab I18n.t "courses.show.course_detail" do
         attributes_table do
           row :id
           row :name
-          row :no_resolution
+          row :resolution_number
           row :created_at
           row :updated_at
           row :modality_id
@@ -76,13 +76,13 @@ ActiveAdmin.register Course do
     f.inputs do
       f.input :modality_id, as: :select, collection: Modality.all
       f.input :name
-      f.input :no_resolution
+      f.input :resolution_number
       f.input :resolution
       f.input :image
-      f.input :start_date, as: :datepicker
-      f.input :finish_date, as: :datepicker
-      f.input :start_inscription_date, as: :datepicker
-      f.input :finish_inscription_date, as: :datepicker
+      f.input :start_date, as: :datepicker, :html_option => { value: Date.today }
+      f.input :finish_date, as: :datepicker, :html_option => { value: Date.today }
+      f.input :start_inscription_date, as: :datepicker, :html_option => { value: Date.today }
+      f.input :finish_inscription_date, as: :datepicker, :html_option => { value: Date.today }
       f.input :description
       f.input :summary
       f.input :teachers, as: :check_boxes, collection: Teacher.all.map {|u| [u.full_name.to_s, u.id]}, multiple: true
