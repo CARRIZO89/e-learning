@@ -52,6 +52,10 @@ es:
         finish_date: Finalización de Cursado
         start_inscription_date: Inicio de Inscripciones
         finish_inscription_date: Cierre de Inscripciones
+        duration:
+          days: "%{days} días"
+          weeks: "%{weeks} semanas"
+          months: "%{months} meses"
       course_module:
         name: Nombre
         description: Descripción

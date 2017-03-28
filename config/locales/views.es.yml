@@ -1,0 +1,6 @@
+es:
+  courses:
+    show:
+      course_title: "Curso: %{name}"
+      description_title: Descripción del Curso
+      modules_title: Modulos
