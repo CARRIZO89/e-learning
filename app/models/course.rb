@@ -8,7 +8,12 @@ class Course < ApplicationRecord
   validates_attachment_file_name :image, :matches => [/jpg\Z/, /jpe?g\Z/, /jpeg\Z/, /png\Z/, /gif\Z/]
   validates_attachment_content_type :resolution, content_type: ['application/pdf']
   validates_attachment_file_name :resolution, :matches => [/pdf\Z/]
-  validates :name, presence: {message: 'No puede estar en blanco.' }
+  validates :name, :modality, :teachers, :description, :start_date, :finish_date, presence: true
+  validates :image, presence: {message: I18n.t('errors.messages.upload_image') }
+  validates :summary, length: {maximum: 100, message: I18n.t('errors.messages.summary_too_long')}, allow_blank: true
+  validates :resolution_number, presence: {message: I18n.t('errors.messages.input_resolution_number') }, if: "resolution.present?"
+  validates :resolution, presence: {message: I18n.t('errors.messages.upload_resolution') }, if: "resolution_number.present?"
+  validate :validate_start_before_finish_date, :validate_inscription_dates
 
   has_many :course_modules
   has_many :inscriptions
@@ -38,6 +43,20 @@ class Course < ApplicationRecord
     I18n.t('activerecord.attributes.course.duration.months', months: duration_in_months)
   end
 
+  private
+
+  def validate_start_before_finish_date
+    return errors.add(:start_date, I18n.t('errors.messages.must_be_after_today')) unless start_date >= Date.today
+    return errors.add(:start_date, I18n.t('errors.messages.must_be_before_finish_date')) unless start_date <= finish_date
+  end
+
+  def validate_inscription_dates
+    return unless start_inscription_date and finish_inscription_date
+    return errors.add(:start_inscription_date, I18n.t('errors.messages.must_be_after_today')) unless start_inscription_date >= Date.today
+    return errors.add(:start_inscription_date, I18n.t('errors.messages.must_be_before_finish_inscription_date')) unless start_inscription_date <= finish_inscription_date
+    return errors.add(:start_inscription_date, I18n.t('errors.messages.must_be_before_start_date')) unless start_inscription_date <= start_date && finish_inscription_date <= start_date
+  end
+
   def duration_in_days
     (finish_date - start_date).to_i
   end
@@ -49,5 +68,4 @@ class Course < ApplicationRecord
   def duration_in_months
     (duration_in_weeks.to_f / MONTH_WEEKS).ceil
   end
-
 end

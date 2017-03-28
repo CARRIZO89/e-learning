@@ -3,7 +3,8 @@ es:
     show:
       course_title: "Curso: %{name}"
       description_title: Descripción del Curso
-      modules_title: Modulos
+      modules_title: Módulos
+      course_detail: Detalle del Curso
   users:
     show:
       page_title: Perfil de Usuario

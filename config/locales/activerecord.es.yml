@@ -43,7 +43,7 @@ es:
         resolution: Resolución que lo avala
         name: Nombre
         image: "Banner"
-        no_resolution: Número de Resolución
+        resolution_number: Número de Resolución
         modality_id: Modalidad de Aprobación
         description: Descripción
         topic_list: Etiquetas (separadas por coma)

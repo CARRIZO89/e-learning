@@ -9,7 +9,7 @@
         <ul class="nav nav-tabs tabs-left">
           <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true"><%= t ('course_modules.description') %></a>
           </li>
-          <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Video</a>
+          <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false"><%= t ('course_modules.video') %></a>
           </li>
           <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false"><%= t ('course_modules.course_files')%></a>
           </li>
@@ -25,7 +25,7 @@
             <p class="description"><%= @course_module.description %></p>
           </div>
           <div class="tab-pane" id="profile">
-            <p class="lead">Video</p>
+            <p class="lead"><%= t ('course_modules.video') %></p>
             <iframe id="ytplayer" type="text/html" width="640" height="390" src='<%= link_to_embed(@course_module.youtube_link) %>?' autoplay=0 frameborder="0"></iframe>
           </div>
           <div class="tab-pane" id="messages"><%= t ('course_modules.course_files')%></div>
