@@ -8,7 +8,7 @@ class Course < ApplicationRecord
   validates_attachment_file_name :image, :matches => [/jpg\Z/, /jpe?g\Z/, /jpeg\Z/, /png\Z/, /gif\Z/]
   validates_attachment_content_type :resolution, content_type: ['application/pdf']
   validates_attachment_file_name :resolution, :matches => [/pdf\Z/]
-  validates :name, :modality, :teachers, :description, :start_date, :finish_date, presence: true
+  validates :name, :modality_id, :teachers, :description, :start_date, :finish_date, presence: true
   validates :image, presence: {message: I18n.t('errors.messages.upload_image') }
   validates :summary, length: {maximum: 100, message: I18n.t('errors.messages.summary_too_long')}, allow_blank: true
   validates :resolution_number, presence: {message: I18n.t('errors.messages.input_resolution_number') }, if: "resolution.present?"
