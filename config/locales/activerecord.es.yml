@@ -41,6 +41,7 @@ es:
         last_name: Apellido
         dni: DNI
         province_id: Provincia
+        type: Tipo
 
       course:
         resolution: Resolución que lo avala
