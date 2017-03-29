@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     redirect_to :back
   end
 
+  helper_method :current_person
+
   protected
 
   def current_person

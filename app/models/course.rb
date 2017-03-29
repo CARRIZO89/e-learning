@@ -23,6 +23,11 @@ class Course < ApplicationRecord
   belongs_to :modality
   delegate :name, to: :modality, prefix: true
 
+  scope :active, ->() {
+    where('start_date < ? AND finish_date > ?', Date.today, Date.today)
+  }
+  scope :unstarted, ->() { where('start_date > ?', Date.today) }
+
   acts_as_ordered_taggable # Alias for acts_as_taggable_on :tags
   acts_as_ordered_taggable_on :topics
 

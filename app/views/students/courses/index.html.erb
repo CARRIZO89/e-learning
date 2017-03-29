@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Cursos<small> Lista de cursos inscriptos</small></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <!-- start user projects -->
+        <table class="data table table-striped no-margin">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><%= t('.table.th.course_name') %></th>
+              <th><%= t('.table.th.progress') %></th>
+              <th><%= t('.table.th.teachers') %></th>
+              <th><%= t('.table.th.finish_date') %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @courses.each do |course| %>
+              <tr>
+                <td><%= course.id %></td>
+                <td><%= link_to course.name, [:students, course] %></td>
+                <td class="vertical-align-mid">
+                  <div class="progress progress_sm">
+                    <div class="progress-bar progress-bar-success" data-transitiongoal="<%= current_user.progress_for(course) %>" style="width: <%= current_user.progress_for(course) %>%;" aria-valuenow="<%= current_user.progress_for(course) %>"></div>
+                  </div>
+                  <small><%= current_user.progress_for(course) %>% Complete</small>
+                </td>
+                <td><%= course.teacher_names.join('<br />') %></td>
+                <td><%= course.finish_date.strftime('%d %b. %Y') %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <!-- end user projects -->
+      </div>
+    </div>
+  </div>
+</div>

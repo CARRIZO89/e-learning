@@ -28,6 +28,3 @@
 
   <%= render('quizzes_section') if @course_module.multiple_choice? %>
 </div>
-
-<%= link_to (t(:back)), course_es_path(@course_module.course), class: "btn_back_cmod" %>
-<%= link_to (t(:edit)), edit_course_course_module_path(@course_module.course, @course_module), class: "btn_edit_cmod" %>

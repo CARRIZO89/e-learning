@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 
     get 'profile', to: 'users#show'
     resources :inscriptions, except: [:show, :destroy]
-    resources :courses do
-      resources :course_modules, except: [:show, :destroy]
-    end
+    resources :courses, only: [:index, :show]
     resources :course_modules, only: [:show, :destroy] do
       resources :quizzes
     end
@@ -22,6 +20,10 @@ Rails.application.routes.draw do
       resources :courses, only: [:index] do
         resources :inscriptions, only: [:index]
       end
+    end
+    namespace :students do
+      resources :courses, only: [:index, :show]
+      resources :course_modules, only: [:show]
     end
 
     root 'welcome#index'

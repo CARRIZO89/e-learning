@@ -10,6 +10,16 @@ class Person < ApplicationRecord
   end
 
   def progress_for(course)
-    (course.count_modules / course.count_modules) * 100
+    (count_approved_modules_for(course).to_f / course.count_modules.to_f) * 100
+  end
+
+  def approved_modules_for(course)
+    CourseModulePerson
+      .approved
+      .where(student: self, course_module: course.course_modules)
+  end
+
+  def count_approved_modules_for(course)
+    approved_modules_for(course).count
   end
 end

@@ -30,9 +30,11 @@
     <div class="col-md-12 col-sm-6 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2><%= t ('courses.module') %> <%= "#{index+1}: #{course_module.name}" %><small><%= @course.name %></small></h2>
+          <h2><i class="fa fa-align-left"></i> <%= t ('courses.module') %> <%= "#{index+1}: #{course_module.name}" %><small><%= @course.name %></small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+            <li><%= link_to t(:show_icon_html), [:students, course_module] %>
+            </li>
           </ul>
         <div class="clearfix"></div>
         </div>
