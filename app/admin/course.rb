@@ -15,6 +15,13 @@ ActiveAdmin.register Course do
     actions
   end
 
+  sidebar "Detalle del Curso", only: [:show, :edit] do
+    ul do
+      li link_to "Módulos",       admin_course_course_modules_path(resource)
+      li link_to "Inscripciones", admin_course_inscriptions_path(resource)
+    end
+  end
+
   show do
     tabs do
       tab I18n.t "courses.show.course_detail" do
@@ -31,14 +38,6 @@ ActiveAdmin.register Course do
           row :finish_date
           row :summary
           row :description
-        end
-      end
-
-      tab I18n.t "course_modules.index" do
-        table_for course.course_modules do
-          column :id
-          column :name
-          column :description
         end
       end
 

@@ -18,6 +18,7 @@ class Course < ApplicationRecord
   has_many :course_modules
   has_many :inscriptions
   has_many :people, through: :inscriptions
+  has_many :students, through: :inscriptions
   has_and_belongs_to_many :teachers, class_name: "Person"
   belongs_to :modality
   delegate :name, to: :modality, prefix: true

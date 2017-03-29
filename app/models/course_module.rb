@@ -3,6 +3,7 @@ class CourseModule < ApplicationRecord
 
   belongs_to :course
   has_many :quizzes
+  has_many :course_module_people
 
   def valid_youtube_link
     unless (youtube_link.include?("youtube.com") || youtube_link.include?("youtu.be"))

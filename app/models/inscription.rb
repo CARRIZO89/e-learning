@@ -4,5 +4,6 @@ class Inscription < ApplicationRecord
     :dni,
     :province_name,
     to: :person, prefix: true
+  belongs_to :student, foreign_key: :person_id
   belongs_to :course
 end

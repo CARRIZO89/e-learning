@@ -24,6 +24,9 @@ es:
       teacher: Profesor
       modality: Modalidad
       comment: Comentario
+      course_module_person:
+        one: Habilitación
+        other: Habilitaciones
     #
     #
     #
@@ -64,6 +67,10 @@ es:
         course_id: Curso
         person_id: Estudiante
         created_at: Fecha de Inscripción
+      course_module_person:
+        people_id: Estudiante
+        course_module_id: Módulo
+        status: Estado
     #
     #
     #
