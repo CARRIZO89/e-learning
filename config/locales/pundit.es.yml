@@ -1,0 +1,3 @@
+es:
+  not_authorized_header: No autorizado!
+  not_authorized_body: Usted no esta habilidato a entrar a %{name}

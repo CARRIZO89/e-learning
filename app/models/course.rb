@@ -44,6 +44,10 @@ class Course < ApplicationRecord
     I18n.t('activerecord.attributes.course.duration.months', months: duration_in_months)
   end
 
+  def multiple_choice?
+    modality.multiple_choice?
+  end
+
   private
 
   def validate_start_before_finish_date

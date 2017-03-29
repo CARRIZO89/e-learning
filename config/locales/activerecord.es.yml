@@ -63,6 +63,8 @@ es:
         name: Nombre
         description: Descripción
         youtube_link: Link de YouTube
+        video: Video Explicativo del Módulo
+        quizzes: Evaluativos
       inscriptions:
         course_id: Curso
         person_id: Estudiante

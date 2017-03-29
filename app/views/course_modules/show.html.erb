@@ -1,41 +1,33 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
-      <h2><i class="fa fa-bars"></i> <%= @course_module.name %></h2>
+      <h2> <%= @course_module.name %></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+      </ul>
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-      <div class="col-xs-3">
-        <ul class="nav nav-tabs tabs-left">
-          <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true"><%= t ('course_modules.description') %></a>
-          </li>
-          <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false"><%= t ('course_modules.video') %></a>
-          </li>
-          <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false"><%= t ('course_modules.course_files')%></a>
-          </li>
-          <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false"><%= t ('course_modules.quiz')%></a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-xs-9">
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div class="tab-pane active" id="home">
-            <p class="lead"><%=t ('course_modules.description')%></p>
-            <p class="description"><%= @course_module.description %></p>
-          </div>
-          <div class="tab-pane" id="profile">
-            <p class="lead"><%= t ('course_modules.video') %></p>
-            <iframe id="ytplayer" type="text/html" width="640" height="390" src='<%= link_to_embed(@course_module.youtube_link) %>?' autoplay=0 frameborder="0"></iframe>
-          </div>
-          <div class="tab-pane" id="messages"><%= t ('course_modules.course_files')%></div>
-          <div class="tab-pane" id="settings"><%= t ('course_modules.quiz')%></div>
-        </div>
-      </div>
-
-      <div class="clearfix"></div>
-      <%= link_to (t(:back)), course_es_path(@course_module.course), class: "btn_back_cmod" %>
-      <%= link_to (t(:edit)), edit_course_course_module_path(@course_module.course, @course_module), class: "btn_edit_cmod" %>
+      <strong><%= t('course_modules.description') %></strong>
+      <p><%= @course_module.description %></p>
     </div>
   </div>
+
+  <div class="x_panel">
+    <div class="x_title">
+      <h2><%= t('activerecord.attributes.course_module.video') %></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <iframe id="ytplayer" type="text/html" width="100%" height="390" src='<%= link_to_embed(@course_module.youtube_link) %>?' autoplay=0 frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <%= render('quizzes_section') if @course_module.multiple_choice? %>
 </div>
+
+<%= link_to (t(:back)), course_es_path(@course_module.course), class: "btn_back_cmod" %>
+<%= link_to (t(:edit)), edit_course_course_module_path(@course_module.course, @course_module), class: "btn_edit_cmod" %>

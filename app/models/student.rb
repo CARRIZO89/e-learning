@@ -1,4 +1,7 @@
 class Student < Person
+  has_many :habilitations, class_name: 'CourseModulePerson',
+    foreign_key: :people_id
+
   def last_active_courses
     courses
       .where('start_date < ?', Date.today)

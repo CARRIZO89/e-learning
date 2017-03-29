@@ -10,4 +10,8 @@ module ApplicationHelper
   def modality_options
     Modality.pluck(:name, :id)
   end
+
+  def flash_error?
+    flash[:alert] == 'ERROR'
+  end
 end
