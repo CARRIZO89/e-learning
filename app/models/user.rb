@@ -10,6 +10,7 @@ class User < ApplicationRecord
     :progress_for,
     :dni,
     :last_completed_courses,
+    :active_courses,
     to: :person
   belongs_to :role
 

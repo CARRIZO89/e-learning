@@ -48,3 +48,15 @@ es:
             name: Nombre Completo
             province: Provincia
             dni: DNI
+    courses:
+      index:
+        page_title: Cursos
+        page_subtitle: Lista de cursos actualmente dictando
+        table:
+          th:
+            course_name: Nombre del Curso
+            no_inscriptions: Número de Inscripciones
+            finish_date: Fecha de Finalización
+          td:
+            actions:
+              inscriptions: Mostrar inscripciones
