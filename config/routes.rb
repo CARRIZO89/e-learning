@@ -18,6 +18,11 @@ Rails.application.routes.draw do
     resources :questions, only: [:show, :destroy] do
       resources :answers
     end
+    namespace :teachers do
+      resources :courses, only: [] do
+        resources :inscriptions, only: [:index]
+      end
+    end
 
     root 'welcome#index'
   end

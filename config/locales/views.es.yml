@@ -38,3 +38,13 @@ es:
         th:
           course_name: Nombre del Curso
           teachers: Profesores
+  teachers:
+    inscriptions:
+      index:
+        page_title: Inscripciones
+        page_subtitle: Lista de inscripciones
+        table:
+          th:
+            name: Nombre Completo
+            province: Provincia
+            dni: DNI
