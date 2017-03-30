@@ -1,4 +1,7 @@
 ActiveAdmin.register Inscription do
+  belongs_to :course
+  navigation_menu :course
+
   permit_params :course_id, :person_id
 
   filter :person_id, as: :select, collection: Student.all

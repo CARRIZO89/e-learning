@@ -24,6 +24,9 @@ es:
       teacher: Profesor
       modality: Modalidad
       comment: Comentario
+      course_module_person:
+        one: Habilitación
+        other: Habilitaciones
     #
     #
     #
@@ -38,6 +41,7 @@ es:
         last_name: Apellido
         dni: DNI
         province_id: Provincia
+        type: Tipo
 
       course:
         resolution: Resolución que lo avala
@@ -60,10 +64,16 @@ es:
         name: Nombre
         description: Descripción
         youtube_link: Link de YouTube
+        video: Video Explicativo del Módulo
+        quizzes: Evaluativos
       inscriptions:
         course_id: Curso
         person_id: Estudiante
         created_at: Fecha de Inscripción
+      course_module_person:
+        people_id: Estudiante
+        course_module_id: Módulo
+        status: Estado
     #
     #
     #

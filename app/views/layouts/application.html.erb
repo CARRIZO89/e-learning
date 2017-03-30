@@ -16,7 +16,11 @@
       <div class="main_container">
         <%= render 'shared/admin/sidebar' %>
         <%= render 'shared/admin/top_nav' %>
-        <div class="right_col"><%= yield %></div>
+        <div class="right_col">
+          <%= render 'shared/flash_messages' %>
+          <div><%= yield %></div>
+          <div class="clearfix"></div>
+        </div>
         <%= render 'shared/admin/footer' %>
       </div>
     </div>

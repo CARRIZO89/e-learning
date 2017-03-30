@@ -8,7 +8,7 @@ class Course < ApplicationRecord
   validates_attachment_file_name :image, :matches => [/jpg\Z/, /jpe?g\Z/, /jpeg\Z/, /png\Z/, /gif\Z/]
   validates_attachment_content_type :resolution, content_type: ['application/pdf']
   validates_attachment_file_name :resolution, :matches => [/pdf\Z/]
-  validates :name, :modality, :teachers, :description, :start_date, :finish_date, presence: true
+  validates :name, :modality_id, :teachers, :description, :start_date, :finish_date, presence: true
   validates :image, presence: {message: I18n.t('errors.messages.upload_image') }
   validates :summary, length: {maximum: 100, message: I18n.t('errors.messages.summary_too_long')}, allow_blank: true
   validates :resolution_number, presence: {message: I18n.t('errors.messages.input_resolution_number') }, if: "resolution.present?"
@@ -18,6 +18,7 @@ class Course < ApplicationRecord
   has_many :course_modules
   has_many :inscriptions
   has_many :people, through: :inscriptions
+  has_many :students, through: :inscriptions
   has_and_belongs_to_many :teachers, class_name: "Person"
   belongs_to :modality
   delegate :name, to: :modality, prefix: true
@@ -25,12 +26,28 @@ class Course < ApplicationRecord
   acts_as_ordered_taggable # Alias for acts_as_taggable_on :tags
   acts_as_ordered_taggable_on :topics
 
-  scope :no_resolution, -> { where(:no_resolution => true) }
+  scope :resolution_number, -> { where(:resolution_number => true) }
+
+  def teacher_names
+    teachers.map(&:full_name)
+  end
+
+  def count_inscriptions
+    inscriptions.count
+  end
+
+  def count_modules
+    course_modules.count
+  end
 
   def display_duration
     return I18n.t('activerecord.attributes.course.duration.days', days: duration_in_days) if duration_in_days < 14
     return I18n.t('activerecord.attributes.course.duration.weeks', weeks: duration_in_weeks) if duration_in_weeks < 12
     I18n.t('activerecord.attributes.course.duration.months', months: duration_in_months)
+  end
+
+  def multiple_choice?
+    modality.multiple_choice?
   end
 
   private

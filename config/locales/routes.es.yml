@@ -16,4 +16,8 @@ es:
     questions: preguntas
     quizzes: evaluaciones
     users: usuarios
+    people: personas
+    profile: perfil
+    teachers: profesores
+    course_module_people: habilitaciones
 

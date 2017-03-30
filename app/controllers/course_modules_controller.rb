@@ -11,6 +11,7 @@ class CourseModulesController < ApplicationController
   # GET /course_modules/1
   # GET /course_modules/1.json
   def show
+    authorize @course_module
   end
 
   # GET /course_modules/new

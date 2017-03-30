@@ -5,3 +5,58 @@ es:
       description_title: Descripción del Curso
       modules_title: Módulos
       course_detail: Detalle del Curso
+  users:
+    show:
+      page_title: Perfil de Usuario
+      report_title: Reporte de Usuario
+      report_subtitle: Reporte de actividad
+      edit_profile: Editar Perfil
+      course_tab: Ultimos Cursos Activos
+    student_tabs:
+      tabs:
+        active_courses: Cursando
+        completed_courses: Cursos Completados
+    teacher_tabs:
+      tabs:
+        active_courses: Dictando
+        completed_courses: Cursos Completados
+    student_active_courses_tabcontent:
+      table:
+        th:
+          course_name: Nombre del Curso
+          progress: Progreso
+          teachers: Profesores
+          finish_date: Finaliza
+    teacher_active_courses_tabcontent:
+      table:
+        th:
+          course_name: Nombre del Curso
+          no_inscriptions: Número de Inscripciones
+          finish_date: Finaliza
+    teacher_completed_courses_tabcontent:
+      table:
+        th:
+          course_name: Nombre del Curso
+          teachers: Profesores
+  teachers:
+    inscriptions:
+      index:
+        page_title: Inscripciones
+        page_subtitle: Lista de inscripciones
+        table:
+          th:
+            name: Nombre Completo
+            province: Provincia
+            dni: DNI
+    courses:
+      index:
+        page_title: Cursos
+        page_subtitle: Lista de cursos actualmente dictando
+        table:
+          th:
+            course_name: Nombre del Curso
+            no_inscriptions: Número de Inscripciones
+            finish_date: Fecha de Finalización
+          td:
+            actions:
+              inscriptions: Mostrar inscripciones

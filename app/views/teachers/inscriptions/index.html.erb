@@ -1,0 +1,47 @@
+<div class="">
+  <div class="page-title">
+    <div class="title_left">
+      <h3><%= t('.page_title') %> <small><%= t('.page_subtitle') %></small></h3>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2><%= t('.page_title') %></h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+          <!-- start project list -->
+          <table class="table table-striped projects">
+            <thead>
+              <tr>
+                <th style="width: 1%">#</th>
+                <th><%= t('.table.th.dni') %></th>
+                <th><%= t('.table.th.name') %></th>
+                <th><%= t('.table.th.province') %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @inscriptions.each do |inscription| %>
+                <tr>
+                  <td><%= inscription.id %></td>
+                  <td><%= inscription.person_dni %></td>
+                  <td><%= inscription.person_full_name %></td>
+                  <td><%= inscription.person_province_name %></td>
+                  <td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <!-- end project list -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

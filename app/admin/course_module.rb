@@ -1,5 +1,14 @@
 ActiveAdmin.register CourseModule do
+  belongs_to :course
+  navigation_menu :course
+
   permit_params :name, :description, :youtube_link, :course_id
+
+  sidebar "Detalle del Módulo", only: [:show, :edit] do
+    ul do
+      li link_to "Hábilitaciones", admin_course_module_course_module_people_path(resource)
+    end
+  end
 
   index do
     column :id

@@ -1,0 +1,32 @@
+<!-- start user projects -->
+<table class="data table table-striped no-margin">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('.table.th.course_name') %></th>
+      <th></th>
+      <th><%= t('.table.th.progress') %></th>
+      <th></th>
+      <th><%= t('.table.th.teachers') %></th>
+      <th><%= t('.table.th.finish_date') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.last_active_courses.each_with_index do |course, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to course.name, course %></td>
+        <td>0</td>
+        <td class="vertical-align-mid">
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" data-transitiongoal="<%= current_user.progress_for(course) %>" style="width: <%= current_user.progress_for(course) %>%;" aria-valuenow="<%= current_user.progress_for(course) %>"></div>
+          </div>
+        </td>
+        <td><%= course.count_modules %></td>
+        <td><%= course.teacher_names.join('<br />') %></td>
+        <td><%= course.finish_date.strftime('%d %b. %Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- end user projects -->

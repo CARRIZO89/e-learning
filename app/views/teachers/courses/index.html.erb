@@ -1,0 +1,50 @@
+<div class="">
+  <div class="page-title">
+    <div class="title_left">
+      <h3><%= t('.page_title') %> <small><%= t('.page_subtitle') %></small></h3>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2><%= t('.page_title') %></h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+          <!-- start project list -->
+          <table class="table table-striped projects">
+            <thead>
+              <tr>
+                <th style="width: 1%">#</th>
+                <th><%= t('.table.th.course_name') %></th>
+                <th><%= t('.table.th.no_inscriptions') %></th>
+                <th><%= t('.table.th.finish_date') %></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @courses.each do |course| %>
+                <tr>
+                  <td><%= course.id %></td>
+                  <td><%= link_to course.name, course %></td>
+                  <td><%= course.count_inscriptions %></td>
+                  <td><%= course.finish_date.strftime('%d %b. %Y') %></td>
+                  <td>
+                    <%= link_to t('.table.td.actions.inscriptions'), teachers_course_inscriptions_path(course), class: 'btn btn-primary btn-xs' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <!-- end project list -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

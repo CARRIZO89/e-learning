@@ -1,0 +1,22 @@
+<!-- start user projects -->
+<table class="data table table-striped no-margin">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('.table.th.course_name') %></th>
+      <th><%= t('.table.th.no_inscriptions') %></th>
+      <th><%= t('.table.th.finish_date') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.last_active_courses.each_with_index do |course, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to course.name, course %></td>
+        <td><%= course.count_inscriptions %></td>
+        <td><%= course.finish_date.strftime('%d %b. %Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- end user projects -->
