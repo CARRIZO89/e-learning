@@ -1,11 +1,22 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  has_scope :no_resolution, :type => :boolean
 
   # GET /courses
   # GET /courses.json
   def index
-    @courses = apply_scopes(Course).all
+    case params[:has_resolution_number]
+      when "true"
+        @courses = Course.where("resolution_number is NOT NULL and resolution_number != ''")
+      when "false"
+        @courses = Course.where(resolution_number: '')
+      else
+        @courses = Course.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @courses }
+    end
   end
 
   # GET /courses/1
@@ -71,6 +82,12 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :resolution_number, :modality_id, :resolution, :start_date, :finish_date, :summary, :description, :image, :topic_list)
+      params.require(:course).permit(:name, :resolution_number, :modality_id, :resolution,
+                                     :start_date, :finish_date, :summary, :description, :image, 
+                                     :topic_list)
+    end
+
+    def filter_params
+      params.require(:filter).permit(:has_resolution_number).merge[has_resolution_number: nil] unless params[:has_resolution_number]
     end
 end

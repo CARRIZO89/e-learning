@@ -290,7 +290,6 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_girl_rails
-  has_scope
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

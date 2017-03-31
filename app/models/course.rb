@@ -26,8 +26,6 @@ class Course < ApplicationRecord
   acts_as_ordered_taggable # Alias for acts_as_taggable_on :tags
   acts_as_ordered_taggable_on :topics
 
-  scope :resolution_number, -> { where(:resolution_number => true) }
-
   def teacher_names
     teachers.map(&:full_name)
   end
