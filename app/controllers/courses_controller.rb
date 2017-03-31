@@ -4,13 +4,17 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    case params[:has_resolution_number]
-      when "true"
-        @courses = Course.where("resolution_number is NOT NULL and resolution_number != ''")
-      when "false"
-        @courses = Course.where(resolution_number: '')
-      else
-        @courses = Course.all
+    unless params[:filter].nil?
+      case params[:filter][:has_resolution_number]
+        when "true"
+          @courses = Course.where("resolution_number != ''")
+        when "false"
+          @courses = Course.where(resolution_number: '')
+        else
+          @courses = Course.all
+      end
+    else
+      @courses = Course.all
     end
 
     respond_to do |format|
@@ -84,10 +88,6 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:name, :resolution_number, :modality_id, :resolution,
                                      :start_date, :finish_date, :summary, :description, :image, 
-                                     :topic_list)
-    end
-
-    def filter_params
-      params.require(:filter).permit(:has_resolution_number).merge[has_resolution_number: nil] unless params[:has_resolution_number]
+                                     :topic_list, [:filter][:has_resolution_number])
     end
 end
