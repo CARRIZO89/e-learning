@@ -4,7 +4,23 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    unless params[:filter].nil?
+      case params[:filter][:has_resolution_number]
+        when "true"
+          @courses = Course.where("resolution_number != ''")
+        when "false"
+          @courses = Course.where(resolution_number: '')
+        else
+          @courses = Course.all
+      end
+    else
+      @courses = Course.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @courses }
+    end
   end
 
   # GET /courses/1
@@ -70,6 +86,8 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :resolution_number, :modality_id, :resolution, :start_date, :finish_date, :summary, :description, :image, :topic_list)
+      params.require(:course).permit(:name, :resolution_number, :modality_id, :resolution,
+                                     :start_date, :finish_date, :summary, :description, :image, 
+                                     :topic_list, [:filter][:has_resolution_number])
     end
 end
