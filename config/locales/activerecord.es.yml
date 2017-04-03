@@ -35,6 +35,7 @@ es:
         role: Rol
         email: Correo Electrónico
         password: Contraseña
+        password_singup: "Ingrese Contraseña (%{length} caracteres minimos)"
         password_confirmation: Confirmar Contraseña
       person:
         first_name: Nombres
@@ -42,7 +43,6 @@ es:
         dni: DNI
         province_id: Provincia
         type: Tipo
-
       course:
         resolution: Resolución que lo avala
         name: Nombre
