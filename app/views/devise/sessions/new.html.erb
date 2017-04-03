@@ -1,12 +1,12 @@
 <div class="animate form login_form">
   <section class="login_content">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <h1>Login Form</h1>
+    <h1><%= t( :login_form )%></h1>
     <div id="email">
-        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, placeholder: true, class: "form-control" %>
     </div>
     <div id="password">
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"%>
+        <%= f.password_field :password, autocomplete: "off", placeholder: true, class: "form-control"%>
     </div>
 
     <% if devise_mapping.rememberable? -%>
@@ -17,9 +17,12 @@
     <% end -%>
     
     <div class="actions_log">
-      <%= f.submit "Log in", class: "btn btn-default submit" %>
+      <%= f.submit t(:login), class: "btn btn-default submit" %>
     </div>
     <% end %>
   </section>
-  <%= render "devise/shared/links" %>
+  <div class="links">
+    <%= render "devise/shared/links" %>
+    <%= link_to t(:home), root_path %>
+  </div>
 </div>

@@ -1,8 +1,16 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show]
 
   def index
     @courses = Course.unstarted
+    unless params[:filter].nil?
+      case params[:filter][:has_resolution_number]
+        when "true"
+          @courses = @courses.where("resolution_number != ''")
+        when "false"
+          @courses = @courses.where(resolution_number: '')
+      end
+    end
   end
 
   def show

@@ -1,7 +1,15 @@
 ActiveAdmin.register Course do
   permit_params :name, :resolution_number, :modality_id, :resolution, :start_date, :finish_date,
-                :summary, :description, :image, :topic_list, :start_inscription_date, :finish_inscription_date, teacher_ids: []
-
+                :summary, :description, :image, :topic_list, :start_inscription_date, 
+                :finish_inscription_date, teacher_ids: []
+  
+  filter :id
+  filter :name
+  filter :resolution_number
+  filter :start_inscription_date
+  filter :finish_inscription_date
+  filter :start_date
+  
   index do
     column :id
     column :name
@@ -70,6 +78,7 @@ ActiveAdmin.register Course do
       end
     end
   end
+  
 
   form do |f|
     f.inputs do
