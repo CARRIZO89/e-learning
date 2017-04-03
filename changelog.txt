@@ -1,4 +1,28 @@
 Changelog
 ---------
 
+* v0.6.0:
+  * La app es configurable por i18n
+  * Se agregaron nuevos elementos al perfil de Estudiantes y Profesores.
+  * Se agregó un link para poder descargar/ver las resolución del Curso.
+  * Corregida la vista de los Módulos de un Curso.
+  * Corregida la vista de la Lista de Cursos.
+  * Corregida la vista de ver un Curso.
+  * Aplicaron varios estilos.
+  * Estudiantes:
+    * Pueder ver los módulos Habilitados.
+    * Corregido algunos errores en la página de inisio de session.
+    * Es capaz de visualizar dos listas de Cursos (con o sin resolución).
+    * Son capaces de inscribirse a los Cursos.
+  * Administrador:
+    * Es capaz de habilitar o deshabilitar los Módulos de un Curso a un estudiante.
+    * Arreglado el error de crear Cursos sin Modalidades.
+    * Puede asignar mas de un Profesor a un Curso.
+    * Corregidos errores a la hora de crear Cursos vacios.
+    * Puede asignar varias etiquetas a un Curso.
+    * Puede agregar una descripción a los métodos de aprobación.
+  * Profesor:
+    * Es capaz de ver la lista de cursos que esta dictando.
+    * Se agregó una lista de Cursos que esta dictando.
+
 * v0.5.0: Base version
