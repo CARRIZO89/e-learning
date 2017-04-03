@@ -19,7 +19,7 @@ es:
     new_model: "Añadir %{model}"
     edit_model: "Editar %{model}"
     delete_model: "Eliminar %{model}"
-    details: "Detalles de %{model}"
+    details: "Detalle del %{model}"
     cancel: "Cancelar"
     empty: "Vacío"
     previous: "Anterior"

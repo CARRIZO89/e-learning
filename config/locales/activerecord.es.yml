@@ -4,6 +4,8 @@ es:
     #
     #
     models:
+      tags: Etiquetas
+      admin_users: Usuarios Admin
       answer: Respuesta
       course: Curso
       course_module: Módulo
@@ -40,13 +42,14 @@ es:
       person:
         first_name: Nombres
         last_name: Apellido
+        full_name: Nombre Completo
         dni: DNI
         province_id: Provincia
         type: Tipo
       course:
         resolution: Resolución que lo avala
         name: Nombre
-        image: "Banner"
+        image: Banner
         resolution_number: Número de Resolución
         modality_id: Modalidad de Aprobación
         description: Descripción
@@ -56,14 +59,68 @@ es:
         finish_date: Finalización de Cursado
         start_inscription_date: Inicio de Inscripciones
         finish_inscription_date: Cierre de Inscripciones
+        resolution_file_name: Nombre del Archivo
+        resolution_content_type: Tipo
+        resolution_file_size: Tamaño del Archivo
+        resolution_updated_at: Resolución Actualizada
+        image_file_name: Nombre del Archivo
+        image_content_type: Tipo
+        image_file_size: Tamaño
+        image_updated_at: Actualizada
+        teachers: Profesores
         duration:
           days: "%{days} días"
           weeks: "%{weeks} semanas"
           months: "%{months} meses"
       course_module:
+        course_id: Curso
         name: Nombre
         description: Descripción
         youtube_link: Link de YouTube
+        created_at: Creado
+        updated_at: Actualizado
+      modality:
+        name: Nombre
+        created_at: Creado
+        updated_at: Actualizado
+      role:
+        users: Usuarios
+        name: Nombre
+      tag:
+        taggings: Etiquetas
+        courses: Cursos
+        name: Nombre
+      user:
+        email: Correo Electrónico
+        password: Contraseña
+        password_confirmation: Confirmar Contraseña
+        created_at: Creado
+        updated_at: Actualizado
+        role_id:  Rol
+        person_id: Persona
+        last_sign_in_at: Ultima Conexión
+        encrypted_password: Contraseña cifrada
+        reset_password_token: Restablecer Contraseña
+        reset_password_sent_at: Restablecer Contraseña Enviada a
+        remember_created_at: Recuerde, Creado en
+        current_sign_in_ip: Conexión Actual
+        last_sign_in_ip: Ultimo Acceso
+        updated_at: Actualizado
+        sign_in_count: Cuenta de Inicio de Sesión
+        current_sign_in_at: Inicio de Sesión Actual
+      admin_user:
+        email: Correo Electrónico
+        current_sign_in_at: Inicio de Sesión actual
+        sign_in_count: Cuenta de Inicio de Sesión
+        created_at: Creado
+        encrypted_password: Contraseña cifrada
+        reset_password_token: Restablecer Contraseña
+        reset_password_sent_at: Restablecer Contraseña Enviada a
+        remember_created_at: Recuerde, Creado en
+        last_sign_in_at: Ultimo Inicio de Sesión
+        current_sign_in_ip: Conexión Actual
+        last_sign_in_ip: Ultimo Acceso
+        updated_at: Actualizado
         video: Video Explicativo del Módulo
         quizzes: Evaluativos
       inscriptions:
@@ -79,4 +136,4 @@ es:
     #
     errors:
       messages:
-        required: es requerido
+        required: Es requerido

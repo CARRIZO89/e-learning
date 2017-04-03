@@ -4,6 +4,12 @@ ActiveAdmin.register User do
   end
   permit_params :email, :password, :password_confirmation, :role_id
 
+filter :id
+filter :created_at
+filter :updated_at
+filter :role_id
+filter :person_id
+
   index do
     column :id
     column :email

@@ -9,6 +9,12 @@ ActiveAdmin.register CourseModule do
       li link_to "Hábilitaciones", admin_course_module_course_module_people_path(resource)
     end
   end
+  
+  filter :id
+  filter :name
+  filter :course_id
+  filter :created_at
+  filter :updated_at
 
   index do
     column :id
@@ -18,6 +24,7 @@ ActiveAdmin.register CourseModule do
     column :updated_at
     actions
   end
+
 
   form do |f|
     f.inputs do

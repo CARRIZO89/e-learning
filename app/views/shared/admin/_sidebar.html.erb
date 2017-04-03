@@ -2,7 +2,7 @@
   <div class="left_col scroll-view">
     <div class="navbar nav_title">
       <%= link_to '#', class: 'site_title' do %>
-        <i class="fa fa-dashboard"></i> <span><%= t(:admin_menu)%></span>
+        <i class="fa fa-dashboard"></i> <span><%= t(:student_menu)%></span>
       <% end %>
     </div>
 
@@ -30,9 +30,8 @@
 
           <li class="active"><a><i class="fa fa-list"></i>Cursos<span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: block;">
-              <!--<li class="current-page"><%= link_to 'New Course', new_course_path %></li>-->
-              <li><%= link_to t(:list_courses), courses_path %></li>
-              <li><%= link_to t('inscriptions.index'), inscriptions_path %></li>
+              <li><%= link_to (t(:list_courses)), courses_path %></li>
+              <li><%= link_to (t('inscriptions.title')), inscriptions_path %></li>
             </ul>
           </li>
         </ul>
