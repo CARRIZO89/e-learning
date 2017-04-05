@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @already_enrolled = Inscription.enrolled?(@course, current_person)
   end
 
   private

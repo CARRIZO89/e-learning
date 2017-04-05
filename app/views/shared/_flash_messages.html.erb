@@ -6,7 +6,7 @@
         <% if flash[:header] %>
           <strong><%= flash[:header] %></strong>
         <% end %>
-        <%= flash[:body]%>
+        <%= flash[:body].html_safe if flash[:body].present? %>
     </div>
   <% end %>
 </div>

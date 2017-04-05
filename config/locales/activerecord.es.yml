@@ -137,3 +137,9 @@ es:
     errors:
       messages:
         required: Es requerido
+        record_invalid: Registro inválido
+      models:
+        inscription:
+          attributes:
+            person_id:
+              taken: Ya se ha inscripto a este curso

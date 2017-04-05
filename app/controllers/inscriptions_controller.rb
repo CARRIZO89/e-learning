@@ -1,58 +1,13 @@
 class InscriptionsController < ApplicationController
-  before_action :set_inscription, only: [:show, :edit, :update, :destroy]
-
-  # GET /inscriptions
-  # GET /inscriptions.json
-  def index
-    @inscriptions = Inscription.where(person: current_person)
-  end
-
-  # GET /inscriptions/1
-  # GET /inscriptions/1.json
-  def show
-  end
-
-  # GET /inscriptions/new
-  def new
-    @inscription = Inscription.new
-  end
-
-  # GET /inscriptions/1/edit
-  def edit
-  end
-
-  # POST /inscriptions
-  # POST /inscriptions.json
   def create
-    @inscription = Inscription.new(person: current_person, course_id: inscription_params[:course_id])
-
-    respond_to do |format|
-      if @inscription.save
-        format.html { redirect_to courses_path, notice: 'Inscription was successfully created.' }
-        format.json { render :show, status: :created, location: @inscription }
-      else
-        format.html { render :new }
-        format.json { render json: @inscription.errors, status: :unprocessable_entity }
-      end
-    end
+    inscription = Inscription.new(inscription_params)
+    inscription.save!
+    flash[:kind]   = 'success'
+    flash[:header] = t('success')
+    flash[:body]   = t('.success', id: inscription.id)
+    redirect_back(fallback_location: '')
   end
 
-  # PATCH/PUT /inscriptions/1
-  # PATCH/PUT /inscriptions/1.json
-  def update
-    respond_to do |format|
-      if @inscription.update(inscription_params)
-        format.html { redirect_to @inscription, notice: 'Inscription was successfully updated.' }
-        format.json { render :show, status: :ok, location: @inscription }
-      else
-        format.html { render :edit }
-        format.json { render json: @inscription.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /inscriptions/1
-  # DELETE /inscriptions/1.json
   def destroy
     @inscription.destroy
     respond_to do |format|
@@ -62,12 +17,8 @@ class InscriptionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_inscription
-      @inscription = Inscription.find(params[:id])
-    end
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def inscription_params
-      params.require(:inscription).permit(:course_id)
-    end
+
+  def inscription_params
+    { person: current_person, course_id: params[:course_id] }
+  end
 end

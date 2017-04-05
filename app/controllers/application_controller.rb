@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
     redirect_to :back
   end
 
+  rescue_from ActiveRecord::RecordInvalid do |e|
+    flash[:kind]   = 'error'
+    flash[:header] = t('failure')
+    flash[:body]   = t('.failure', errors: e.record.errors.messages.values.flatten.join('<br>'))
+    redirect_back(fallback_location: '')
+  end
+
   helper_method :current_person
 
   protected

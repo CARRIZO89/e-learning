@@ -8,7 +8,7 @@
     <title><%= t(:title) %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="nav-md <%= current_user.role.name %>">
@@ -18,7 +18,10 @@
         <%= render 'shared/admin/top_nav' %>
         <div class="right_col">
           <%= render 'shared/flash_messages' %>
-          <div><%= yield %></div>
+          <div>
+            <%= render 'shared/titles' %>
+            <%= yield %>
+          </div>
           <div class="clearfix"></div>
         </div>
         <%= render 'shared/admin/footer' %>

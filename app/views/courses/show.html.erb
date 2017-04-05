@@ -1,26 +1,28 @@
-<div class="col-md-12 col-sm-12 col-xs-12">
-  <div class="x_panel">
-    <div class="x_title">
-      <h2><%= t('.course_title', name: @course.name) %></h2>
-      <div class="clearfix"></div>
-    </div>
+<%= content_for :title_right do %>
+  <%= link_to t('.btn.label.new_inscription'), course_inscriptions_path(@course), class: "btn btn-primary pull-right", method: :post, data: { confirm: t('.btn.confirm.new_inscription') } %>
+<% end unless @already_enrolled %>
 
-    <div class="x_content">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <p class="title"><%= image_tag @course.image.url(:original), size: "1000x300" %></p>
-        <p><%= @course.description %></p>
-        <div class="project_detail">
-          <p class="title"><%= t('activerecord.attributes.course.modality_id') %></p>
-          <p><%= @course.modality_name.humanize %></p>
-          <% if @course.resolution_number? %>
-            <p class="title"><%= t('activerecord.attributes.course.resolution_number') %></p>
-            <p><%= link_to @course.resolution_number, @course.resolution.url, target: '_blank' %></p>
-          <% end %>
-          <p class="title"><%= t('activerecord.attributes.course.start_date') %></p>
-          <p><%= @course.start_date.strftime('%d %b. %Y') %></p>
-          <p class="title"><%= t('activerecord.attributes.course.finish_date') %></p>
-          <p><%= @course.finish_date.strftime('%d %b. %Y') %> (<%= @course.display_duration %>)</p>
-      </div>
+<div class="x_panel">
+  <div class="x_title">
+    <h2><%= t('.course_title', name: @course.name) %></h2>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="x_content">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <p class="title"><%= image_tag @course.image.url(:original) %></p>
+      <p><%= @course.description %></p>
+      <div class="project_detail">
+        <p class="title"><%= t('activerecord.attributes.course.modality_id') %></p>
+        <p><%= @course.modality_name.humanize %></p>
+        <% if @course.resolution_number? %>
+          <p class="title"><%= t('activerecord.attributes.course.resolution_number') %></p>
+          <p><%= link_to @course.resolution_number, @course.resolution.url, target: '_blank' %></p>
+        <% end %>
+        <p class="title"><%= t('activerecord.attributes.course.start_date') %></p>
+        <p><%= @course.start_date.strftime('%d %b. %Y') %></p>
+        <p class="title"><%= t('activerecord.attributes.course.finish_date') %></p>
+        <p><%= @course.finish_date.strftime('%d %b. %Y') %> (<%= @course.display_duration %>)</p>
     </div>
   </div>
 </div>
@@ -45,10 +47,3 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to (t(:back)), courses_path, class: "btn_back_sc" %>
-<%= link_to (t(:list_courses)), courses_path %>
-<%= link_to (t('inscriptions.title')), inscriptions_path %>
-<!--
-<%= link_to 'Register', new_inscription_path(@course), class: "btn_show_reg" %>
--->

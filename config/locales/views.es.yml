@@ -1,10 +1,19 @@
 es:
+  titles:
+    courses: Cursos
+  success: 'Exito!'
+  failure: 'Algo ha salido mal!'
   courses:
     show:
       course_title: "Curso: %{name}"
       description_title: Descripción del Curso
       modules_title: Módulos
       course_detail: Detalle del Curso
+      btn:
+        label:
+          new_inscription: Inscribirse
+        confirm:
+          new_inscription: ¿Está seguro de querer inscribirse?
   users:
     show:
       page_title: Perfil de Usuario
@@ -60,3 +69,7 @@ es:
           td:
             actions:
               inscriptions: Mostrar inscripciones
+  inscriptions:
+    create:
+      success: 'Se ha creado su inscripción correctamente. Su identificador es: %{id}'
+      failure: '<br>Los siguientes errores impidieron que se inscribiese:<br>%{errors}'
