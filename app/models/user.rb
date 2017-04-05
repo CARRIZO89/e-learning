@@ -11,7 +11,7 @@ class User < ApplicationRecord
     :dni,
     :last_completed_courses,
     :active_courses,
-    to: :person
+    to: :person, allow_nil: true
   belongs_to :role
 
   accepts_nested_attributes_for :person
