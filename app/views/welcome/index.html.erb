@@ -1,28 +1,3 @@
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="logo" href="index.html"><img src="img/logo.svg" alt="Logo"></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#pricing" class="scroll"><%= t(:pricing) %></a></li>
-            <% if current_user %>
-              <li><%= link_to t('courses.title'), courses_path %></li>
-              <li><%= link_to (t(:exit)), destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to (t(:signup)), new_user_registration_es_path %></li>
-              <li><%= link_to (t(:login)), new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
-        
     <header>
       <div class="container">
         <div class="row">
@@ -39,7 +14,7 @@
               <% end -%>
               &nbsp; &nbsp;<%= link_to (t(:logout)), destroy_user_session_path, method: :delete %>
             <% else %>
-              &nbsp; &nbsp;<%= link_to t('courses.title'), courses_path %>
+              &nbsp; &nbsp;<%= link_to t('courses.title'), guests_courses_path %>
               &nbsp; &nbsp;<%= link_to (t(:signup)), new_user_registration_es_path %>
               &nbsp; &nbsp;<%= link_to (t(:login)), new_user_session_path %> <!-- Si no está, le pide que inicie sesin -->
             <% end %>

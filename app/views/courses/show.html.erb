@@ -1,6 +1,6 @@
 <%= content_for :title_right do %>
   <%= link_to t('.btn.label.new_inscription'), course_inscriptions_path(@course), class: "btn btn-primary pull-right", method: :post, data: { confirm: t('.btn.confirm.new_inscription') } %>
-<% end unless @already_enrolled %>
+  <% end unless @already_enrolled %>
 
 <div class="x_panel">
   <div class="x_title">
