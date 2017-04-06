@@ -7,7 +7,7 @@
         <div class="clearfix"></div>
       </div>
       <div>
-        <%= form_for :filter, url: courses_path, method: :get do |f| %>
+        <%= form_for :filter, url: guests_courses_path, method: :get do |f| %>
           <div class="x_content">
             <div class="row">
               <% @courses.each do |course| %>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="caption">
                       <p><strong><%= course.name %></strong></p>
-                      <%= link_to t(:show), course, class: "btn btn-primary btn-xs" %>
+                      <%= link_to t(:show), guests_course_path(course), class: "btn btn-primary btn-xs" %>
                     </div>
                   </div>
                 </div>

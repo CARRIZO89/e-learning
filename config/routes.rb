@@ -27,6 +27,9 @@ Rails.application.routes.draw do
       resources :courses, only: [:index, :show]
       resources :course_modules, only: [:show]
     end
+    namespace :guests do
+      resources :courses, only: [:index, :show]
+    end
    
     root 'welcome#index'
   end
