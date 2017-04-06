@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       resources :courses, only: [:index, :show]
       resources :course_modules, only: [:show]
     end
-
+   
     root 'welcome#index'
   end
 end

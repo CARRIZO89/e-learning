@@ -11,22 +11,24 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="nav-md <%= current_user.role.name %>">
-    <div class="container body">
-      <div class="main_container">
-        <%= render 'shared/admin/sidebar' %>
-        <%= render 'shared/admin/top_nav' %>
-        <div class="right_col">
-          <%= render 'shared/flash_messages' %>
-          <div>
-            <%= render 'shared/titles' %>
-            <%= yield %>
+  <%if current_user%>
+    <body class="nav-md <%= current_user.role.name %>">
+      <div class="container body">
+        <div class="main_container">
+          <%= render 'shared/admin/sidebar' %>
+          <%= render 'shared/admin/top_nav' %>
+          <div class="right_col">
+            <%= render 'shared/flash_messages' %>
+            <div><%= yield %></div>
+            <div class="clearfix"></div>
           </div>
-          <div class="clearfix"></div>
+          <%= render 'shared/admin/footer' %>
         </div>
-        <%= render 'shared/admin/footer' %>
       </div>
-    </div>
-    <%= javascript_include_tag 'application' %>
-  </body>
+      <%= javascript_include_tag 'application' %>
+    </body>
+  <% else%>
+    <!--<div><%= yield %></div>-->
+    <%= render 'guests/courses/index' %>
+  <% end -%>
 </html>
