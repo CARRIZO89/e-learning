@@ -7,10 +7,9 @@
     <h2><%= t('.course_title', name: @course.name) %></h2>
     <div class="clearfix"></div>
   </div>
-
   <div class="x_content">
     <div class="col-md-12 col-sm-12 col-xs-12">
-      <p class="title"><%= image_tag @course.image.url(:original) %></p>
+      <p class="title"><%= image_tag @course.image.url(:original), style: 'width: 100%; height: 400px' %></p>
       <p><%= @course.description %></p>
       <div class="project_detail">
         <p class="title"><%= t('activerecord.attributes.course.modality_id') %></p>

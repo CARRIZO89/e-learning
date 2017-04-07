@@ -1,10 +1,17 @@
-<p>HOLA MUNDO</p>
 <div class="row">
   <div class="col-md-12">
     <div class="x_panel">
       <div class="x_title">
         <h2><%= t('courses.title') %><small><%= t('courses.gallery') %></small></h2>
+        <div class="links_guests">
+          &nbsp; &nbsp;<%= link_to (t(:signup)), new_user_registration_es_path %>
+          &nbsp; &nbsp;<%= link_to (t(:login)), new_user_session_path %>
+          &nbsp; &nbsp;<%= link_to t(:home), root_path %>
+        </div>
         <div class="clearfix"></div>
+      </div>
+      <div id="title_index">
+        <h3>Estos son nuestros cursos que tenemos disponibles para vos <br/> Sumate</h3>
       </div>
       <div>
         <%= form_for :filter, url: guests_courses_path, method: :get do |f| %>

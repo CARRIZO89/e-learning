@@ -1,1 +1,48 @@
-<p>HOLA DE NUEVO</p>
+<%= content_for :title_right do %>
+  <%= link_to t('.btn.label.new_inscription'), course_inscriptions_path(@course), class: "btn btn-primary pull-right", method: :post, data: { confirm: t('.btn.confirm.new_inscription') } %>
+  <% end unless @already_enrolled %>
+<div class="contenedor">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2><%= t('courses.show.course_title', name: @course.name) %></h2>
+        <div class="links_guests">
+          &nbsp; &nbsp;<%= link_to (t(:signup)), new_user_registration_es_path %>
+          &nbsp; &nbsp;<%= link_to (t(:login)), new_user_session_path %>
+          &nbsp; &nbsp;<%= link_to t(:home), root_path %>
+        </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="x_content">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <p class="title"><%= image_tag @course.image.url(:original), style: 'width: 100%; height: 400px; display: block;' %></p>
+        <p><%= @course.description %></p>
+        <div class="project_detail">
+          <p class="title"><%= t('activerecord.attributes.course.modality_id') %></p>
+          <p><%= @course.modality_name.humanize %></p>
+          <% if @course.resolution_number? %>
+            <p class="title"><%= t('activerecord.attributes.course.resolution_number') %></p>
+            <p><%= link_to @course.resolution_number, @course.resolution.url, target: '_blank' %></p>
+          <% end %>
+          <p class="title"><%= t('activerecord.attributes.course.start_date') %></p>
+          <p><%= @course.start_date.strftime('%d %b. %Y') %></p>
+          <p class="title"><%= t('activerecord.attributes.course.finish_date') %></p>
+          <p><%= @course.finish_date.strftime('%d %b. %Y') %> (<%= @course.display_duration %>)</p>
+        </div>
+      </div>
+    </div>
+<!--//////////////////////////////////////////-->
+    <% @course.course_modules.each_with_index do |course_module, index| %>
+      <div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-12">
+          <div class="module">
+            <div class="x_title">
+              <h2><%= t ('courses.module') %> <%= "#{index+1}: #{course_module.name}" %><small><%= @course.name %></small></h2>
+            <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

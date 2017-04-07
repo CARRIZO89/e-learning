@@ -19,7 +19,10 @@
           <%= render 'shared/admin/top_nav' %>
           <div class="right_col">
             <%= render 'shared/flash_messages' %>
-            <div><%= yield %></div>
+            <div>
+              <%= render 'shared/titles' %>
+              <%= yield %>
+            </div>
             <div class="clearfix"></div>
           </div>
           <%= render 'shared/admin/footer' %>
