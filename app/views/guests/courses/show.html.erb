@@ -6,6 +6,7 @@
     <div class="x_title">
       <h2><%= t('courses.show.course_title', name: @course.name) %></h2>
         <div class="links_guests">
+          &nbsp; &nbsp;<%= link_to (t(:back)), guests_courses_path %>
           &nbsp; &nbsp;<%= link_to (t(:signup)), new_user_registration_es_path %>
           &nbsp; &nbsp;<%= link_to (t(:login)), new_user_session_path %>
           &nbsp; &nbsp;<%= link_to t(:home), root_path %>

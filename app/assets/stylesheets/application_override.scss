@@ -152,7 +152,7 @@
   background-color: #60BAA7;
 }
 .thumbnail {
-    height: 200px;
+    height: 264px;
 }
 .summary, .description {
   word-wrap: break-word;
@@ -216,4 +216,9 @@ hr {
 
 .links_guests {
   float: right;
+}
+
+#summary {
+  width: 100%;
+  height: 60px;
 }

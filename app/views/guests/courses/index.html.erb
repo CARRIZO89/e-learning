@@ -11,14 +11,14 @@
         <div class="clearfix"></div>
       </div>
       <div id="title_index">
-        <h3>Estos son nuestros cursos que tenemos disponibles para vos <br/> Sumate</h3>
+        <h3><strong>INVIERTE EN TI, ELIGE CAPACITARTE CON NOSOTROS <br/> ¡SUMATE!</strong></h3>
       </div>
       <div>
         <%= form_for :filter, url: guests_courses_path, method: :get do |f| %>
           <div class="x_content">
             <div class="row">
               <% @courses.each do |course| %>
-                <div class="col-md-55">
+                <div class="col-md-4">
                   <div class="thumbnail">
                     <div class="image view view-first">
                       <%= image_tag( course.image.url(:original), alt: 'image', style: 'width: 100%; height: 100%; display: block;' ) %>
@@ -29,6 +29,7 @@
                     </div>
                     <div class="caption">
                       <p><strong><%= course.name %></strong></p>
+                      <p id="summary"><%= course.summary %></p>
                       <%= link_to t(:show), guests_course_path(course), class: "btn btn-primary btn-xs" %>
                     </div>
                   </div>
