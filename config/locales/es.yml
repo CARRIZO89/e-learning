@@ -19,6 +19,7 @@ es:
   help: "Ayuda"
   back: "Atrás"
   show: "Ver"
+  index: "Listado"
   edit: "Modificar"
   destroy: "Eliminar"
   are_you_sure: "Está seguro?"
