@@ -8,4 +8,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.save
     end
   end
+
+  def after_update_path_for(resource)
+    case resource
+    when :user, User
+      edit_user_registration_path
+    else
+      super
+    end
+  end
 end

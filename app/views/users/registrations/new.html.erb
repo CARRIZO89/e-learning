@@ -9,7 +9,7 @@
       <div id="field_password_su">
         <% if @minimum_password_length %>
         <% end %>
-        <%= f.password_field t('activerecord.attributes.user.password_singup', :length=> @minimum_password_length),  autocomplete: "off", placeholder: true, class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: t('activerecord.attributes.user.password_hint', length: @minimum_password_length), class: "form-control" %>
       </div>
       <div id="field_confirPas_su">
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: true, class: "form-control" %>
