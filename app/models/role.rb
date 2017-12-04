@@ -1,5 +1,5 @@
 class Role < ApplicationRecord
-  STUDENT_ID = 3
+  STUDENT_ID = 2
 
   has_many :users
 

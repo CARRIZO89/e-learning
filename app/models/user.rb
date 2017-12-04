@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :person
+  belongs_to :person, dependent: :destroy
   delegate :full_name,
     :province_name,
     :last_active_courses,

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     flash[:body]   = t('not_authorized_body', name: e.record.display_name)
     redirect_to :back
   end
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from ActiveRecord::RecordInvalid do |e|
     flash[:kind]   = 'error'
@@ -24,7 +25,13 @@ class ApplicationController < ActionController::Base
     current_user.person
   end
 
-  def devise_parameter_sanitizer
-    Users::ParameterSanitizer.new(User, :user, params)
+  private
+  def configure_permitted_parameters
+    person_attr = [:first_name, :last_name, :dni, :province_id]
+    user_attr = [:email, :password, :password_confirmation]
+    devise_parameter_sanitizer.permit(:sign_up, keys: [user_attr,
+                                      person_attributes: [person_attr]])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:current_password, user_attr,
+                                      person_attributes: [:id, person_attr]])
   end
 end

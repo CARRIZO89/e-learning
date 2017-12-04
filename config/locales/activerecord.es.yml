@@ -33,12 +33,6 @@ es:
     #
     #
     attributes:
-      user:
-        role: Rol
-        email: Correo Electrónico
-        password: Contraseña
-        password_singup: "Ingrese Contraseña (%{length} caracteres minimos)"
-        password_confirmation: Confirmar Contraseña
       person:
         first_name: Nombres
         last_name: Apellido
@@ -93,6 +87,7 @@ es:
       user:
         email: Correo Electrónico
         password: Contraseña
+        password_hint: Contraseña (%{length} caracteres mínimos)
         password_confirmation: Confirmar Contraseña
         created_at: Creado
         updated_at: Actualizado
