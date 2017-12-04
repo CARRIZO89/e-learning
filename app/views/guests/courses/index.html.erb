@@ -3,19 +3,18 @@
     <div class="x_panel">
       <div class="x_title">
         <h2><%= t('courses.title') %><small><%= t('courses.gallery') %></small></h2>
+        <div class="links_guests">
+          &nbsp; &nbsp;<%= link_to (t(:signup)), new_user_registration_es_path %>
+          &nbsp; &nbsp;<%= link_to (t(:login)), new_user_session_path %>
+          &nbsp; &nbsp;<%= link_to t(:home), root_path %>
+        </div>
         <div class="clearfix"></div>
       </div>
+      <div id="title_index">
+        <h3><strong>INVIERTE EN TI, ELIGE CAPACITARTE CON NOSOTROS <br/> ¡SUMATE!</strong></h3>
+      </div>
       <div>
-        <%= form_for :filter, url: courses_path, method: :get do |f| %>
-
-          <div class="form-inputs col-md-55">
-            <%= f.select :has_resolution_number, collection: [[t('courses.all_courses'), nil], [t('courses.with_resolution'), true], [t('courses.without_resolution'), false]] %>
-          </div>
-
-          <div class="form-actions col-md-55">
-            <%= f.button :submit %>
-          </div>
-
+        <%= form_for :filter, url: guests_courses_path, method: :get do |f| %>
           <div class="x_content">
             <div class="row">
               <% @courses.each do |course| %>
@@ -31,7 +30,7 @@
                     <div class="caption">
                       <p><strong><%= course.name %></strong></p>
                       <p id="summary"><%= course.summary %></p>
-                      <%= link_to t(:show), course, class: "btn btn-primary btn-xs" %>
+                      <%= link_to t(:show), guests_course_path(course), class: "btn btn-primary btn-xs" %>
                     </div>
                   </div>
                 </div>

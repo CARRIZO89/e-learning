@@ -1,28 +1,3 @@
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="logo" href="index.html"><img src="img/logo.svg" alt="Logo"></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#pricing" class="scroll"><%= t(:pricing) %></a></li>
-            <% if current_user %>
-              <li><%= link_to t('courses.title'), courses_path %></li>
-              <li><%= link_to (t(:exit)), destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to (t(:signup)), new_user_registration_es_path %></li>
-              <li><%= link_to (t(:login)), new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
-        
     <header>
       <div class="container">
         <div class="row">
@@ -32,9 +7,14 @@
           <div class="col-xs-6 signin text-right navbar-nav">
             <a href="#pricing" class="scroll"><%= t(:pricing) %></a>
             <% if current_user %> <!-- Perguntamos si esta logeado. Si está, muestra las opciones de poder ver los cursos y salir -->
-              &nbsp; &nbsp;<%= link_to t('courses.title'), courses_path %>
+              <%if current_person.type == 'Teacher' %>
+                &nbsp; &nbsp;<%= link_to "#{current_person.type}", teachers_courses_path %>
+              <%else%>
+                &nbsp; &nbsp;<%= link_to "#{current_person.type}", students_courses_path %>
+              <% end -%>
               &nbsp; &nbsp;<%= link_to (t(:logout)), destroy_user_session_path, method: :delete %>
             <% else %>
+              &nbsp; &nbsp;<%= link_to t('courses.title'), guests_courses_path %>
               &nbsp; &nbsp;<%= link_to (t(:signup)), new_user_registration_es_path %>
               &nbsp; &nbsp;<%= link_to (t(:login)), new_user_session_path %> <!-- Si no está, le pide que inicie sesin -->
             <% end %>
