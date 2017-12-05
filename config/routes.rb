@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :answers
     end
     namespace :teachers do
-      resources :courses, only: [:index] do
+      resources :courses, only: [:index, :show] do
         resources :inscriptions, only: [:index]
       end
     end
