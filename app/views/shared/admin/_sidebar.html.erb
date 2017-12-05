@@ -36,7 +36,7 @@
                 <% if current_user.role.name == 'Teacher'%>
                     <%= link_to t('inscriptions.index'), teachers_courses_es_path %>
                   <% else%>
-                   <%= link_to t('inscriptions.index'), students_courses_es_path %>
+                    <%= link_to t('inscriptions.index'), students_courses_es_path %>
                 <% end %>
               </li>
             </ul>
