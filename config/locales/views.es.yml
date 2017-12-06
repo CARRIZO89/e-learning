@@ -1,6 +1,7 @@
 es:
   titles:
     courses: Cursos
+    course_modules: Modulo
   success: 'Exito!'
   failure: 'Algo ha salido mal!'
   courses:
