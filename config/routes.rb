@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     resources :courses, only: [:index, :show] do
       post :inscriptions, to: 'inscriptions#create'
     end
-    # resources :course_modules, only: [:show, :destroy] do
-    #   resources :quizzes
-    # end
+    resources :course_modules, only: [:show, :destroy] do
+      resources :quizzes
+    end
     resources :quizzes, only: [:show, :destroy] do
       resources :questions
     end

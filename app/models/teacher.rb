@@ -1,5 +1,7 @@
 class Teacher < Person
   has_and_belongs_to_many :courses
+  has_many :habilitations, class_name: 'CourseModulePerson',
+    foreign_key: :people_id
 
   def active_courses
     Course
