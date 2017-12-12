@@ -3,6 +3,7 @@ es:
   title: Silvano Capacitación Deportiva
   hello: "Hola Mundo"
   student_menu: "Menú de Alumno"
+  menu: "Menú de Usuario"
   signup: "Registrarse"
   login: "Ingresar"
   logout: "Cerrar Sesión"
@@ -13,7 +14,7 @@ es:
   send_me_reset_password_instructions: "Restablecer"
   confirmation: "No recibiste el mail de confirmación?"
   welcome: "Bienvenido,"
-  list_courses: "Lista de Cursos"
+  list_courses: "Mis Cursos"
   profile: "Mi Cuenta"
   settings: "Configuración"
   help: "Ayuda"
@@ -91,6 +92,7 @@ es:
     created_at: "Creado"
     person: "Estudiante"
     created_at: "Fecha de Inscripción"
+    index: "Indice de Cursos"
   errors:
     messages:
       blank: "No puede estar en blanco"

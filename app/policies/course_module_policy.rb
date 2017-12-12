@@ -11,7 +11,11 @@ class CourseModulePolicy < ApplicationPolicy
   end
 
   def show?
-    user.person.habilitations.where(course_module: record).exists?
+    if user.role.name == 'Teacher'
+      record.course.inscriptions.where(person: user.person).exists?
+    else
+      user.person.habilitations.where(course_module: record).exists?
+    end
   end
 
   def create?
