@@ -31,7 +31,7 @@
               <% @courses.each do |course| %>
                 <tr>
                   <td><%= course.id %></td>
-                  <td><%= link_to course.name, course %></td>
+                  <td><%= link_to course.name, teachers_course_es_path(course) %></td>
                   <td><%= course.count_inscriptions %></td>
                   <td><%= course.finish_date.strftime('%d %b. %Y') %></td>
                   <td>
