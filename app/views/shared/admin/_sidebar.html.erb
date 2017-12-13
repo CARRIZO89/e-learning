@@ -30,15 +30,12 @@
 
           <li class="active"><a><i class="fa fa-list"></i>Cursos<span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" style="display: block;">
-              <li><%= link_to t('inscriptions.index'), courses_path %></li>
-              
-              <li>
-                <% if current_user.role.name == 'Teacher'%>
-                    <%= link_to t(:list_courses), teachers_courses_es_path %>
-                  <% else%>
-                    <%= link_to t(:list_courses), students_courses_es_path %>
-                <% end %>
-              </li>
+              <% if current_user.role.name == 'Teacher'%>
+                  <li><%= link_to t(:list_courses), teachers_courses_es_path %></li>
+                <% else%>
+                  <li><%= link_to t('inscriptions.index'), courses_path %></li>
+                  <li><%= link_to t(:list_courses), students_courses_es_path %></li>
+              <% end %>
             </ul>
           </li>
         </ul>

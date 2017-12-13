@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     namespace :teachers do
       resources :courses, only: [:index, :show] do
         resources :inscriptions, only: [:index]
+        resources :course_modules, only: [:edit, :update, :show, :destroy] do
+          resources :quizzes
+        end
       end
     end
     namespace :students do
