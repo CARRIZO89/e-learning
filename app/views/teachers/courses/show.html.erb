@@ -20,11 +20,28 @@
           <p><%= @course.start_date.strftime('%d %b. %Y') %></p>
           <p class="title"><%= t('activerecord.attributes.course.finish_date') %></p>
           <p><%= @course.finish_date.strftime('%d %b. %Y') %> (<%= @course.display_duration %>)</p>
+          <p class="title"><%= t('activerecord.attributes.course.quiz') %></p>
+          <% if @course.evaluative_file_file_name? %>
+           <%= image_tag @course.evaluative_file_file_name.url(:original), size: "1000x300" %>
+          <%else%>
+            <div class="alert alert-warning" role="alert">
+              No hay Examen cargado!
+            </div>
+          <% end %>
+          <p class="title"><%= t('activerecord.attributes.course.quiz_description') %></p>
+          <% if @course.quiz_description? %>
+           <%= image_tag @course.evaluative_file_file_name.url(:original), size: "1000x300" %>
+          <%else%>
+            <div class="alert alert-warning" role="alert">
+              No hay Descripción sobre el Examen!
+            </div>
+          <% end %>
+          <p class="title"><%= link_to "Editar Curso", edit_teachers_course_es_path(@course), class: 'btn btn-primary'%></p>
       </div>
     </div>
   </div>
 </div>
-<!--//////////////////////////////////////////-->
+
 <% @course.course_modules.each_with_index do |course_module, index| %>
   <div class="row">
     <div class="col-md-12 col-sm-6 col-xs-12">
