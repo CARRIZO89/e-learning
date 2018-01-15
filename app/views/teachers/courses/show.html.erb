@@ -7,7 +7,7 @@
 
     <div class="x_content">
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <p class="title"><%= image_tag @course.image.url(:original), size: "1000x300" %></p>
+        <%= image_tag @course.image.url(:original), class: 'course-banner'%>
         <p><%= @course.description %></p>
         <div class="project_detail">
           <p class="title"><%= t('activerecord.attributes.course.modality_id') %></p>
@@ -20,11 +20,35 @@
           <p><%= @course.start_date.strftime('%d %b. %Y') %></p>
           <p class="title"><%= t('activerecord.attributes.course.finish_date') %></p>
           <p><%= @course.finish_date.strftime('%d %b. %Y') %> (<%= @course.display_duration %>)</p>
+          <p class="title"><%= t('activerecord.attributes.course.quiz') %></p>
+
+          <% if @course.evaluative_file_file_name? %>
+            <% if @course.evaluative_file_file_name == "*.jpg"%>
+             <%= image_tag @course.evaluative_file_file_name.url(:original), size: "1000x300" %>
+            <%else%>
+              <h5 class="btn-download-evaluative"><strong><%= @course.evaluative_file_file_name %></strong></h5>
+              <%= link_to "Descarga Examen", @course.evaluative_file.url(:original, false), class: 'btn btn-primary btn-download-evaluative' %>
+            <% end %>
+          <%else%>
+            <div class="alert alert-warning" role="alert">
+              No hay Examen cargado!
+            </div>
+          <% end %>
+
+          <p class="title"><%= t('activerecord.attributes.course.quiz_description') %></p>
+          <% if @course.quiz_description? %>
+           <%= @course.quiz_description %>
+          <%else%>
+            <div class="alert alert-warning" role="alert">
+              No hay Descripción sobre el Examen!
+            </div>
+          <% end %>
+          <p class="title btn-edit-course"><%= link_to "Editar Curso", edit_teachers_course_es_path(@course), class: 'btn btn-primary'%></p>
       </div>
     </div>
   </div>
 </div>
-<!--//////////////////////////////////////////-->
+
 <% @course.course_modules.each_with_index do |course_module, index| %>
   <div class="row">
     <div class="col-md-12 col-sm-6 col-xs-12">
@@ -33,7 +57,7 @@
           <h2><i class="fa fa-align-left"></i> <%= t ('courses.module') %> <%= "#{index+1}: #{course_module.name}" %><small><%= @course.name %></small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-            <li><%= link_to t(:show_icon_html), students_course_module_es_path(course_module) %>
+            <li><%= link_to t(:show_icon_html), teachers_course_course_module_es_path(@course, course_module) %>
             </li>
           </ul>
         <div class="clearfix"></div>

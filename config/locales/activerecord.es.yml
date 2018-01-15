@@ -51,6 +51,8 @@ es:
         summary: Resumen
         start_date: Inicio de Cursado
         finish_date: Finalización de Cursado
+        quiz: Examen
+        quiz_description: Descripción del Examen
         start_inscription_date: Inicio de Inscripciones
         finish_inscription_date: Cierre de Inscripciones
         resolution_file_name: Nombre del Archivo
@@ -61,6 +63,7 @@ es:
         image_content_type: Tipo
         image_file_size: Tamaño
         image_updated_at: Actualizada
+        upload_quiz: Subir Examen
         teachers: Profesores
         duration:
           days: "%{days} días"

@@ -34,7 +34,7 @@
           <h2><%= t ('courses.module') %> <%= "#{index+1}: #{course_module.name}" %><small><%= @course.name %></small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-            <li><%= link_to t(:show_icon_html), students_course_module_path %></li>
+            <li><%= link_to t(:show_icon_html), course_module_es_path(course_module) %></li>
           </ul>
         <div class="clearfix"></div>
         </div>
