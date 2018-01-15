@@ -19,8 +19,11 @@ Rails.application.routes.draw do
       resources :answers
     end
     namespace :teachers do
-      resources :courses, only: [:index, :show] do
+      resources :courses, only: [:index, :show, :edit, :update] do
         resources :inscriptions, only: [:index]
+        resources :course_modules, only: [:edit, :update, :show, :destroy] do
+          resources :quizzes
+        end
       end
     end
     namespace :students do

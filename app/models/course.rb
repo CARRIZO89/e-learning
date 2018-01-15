@@ -4,19 +4,19 @@ class Course < ApplicationRecord
 
   has_attached_file :image, preserve_files: true, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   has_attached_file :resolution, preserve_files: true
+  has_attached_file :evaluative_file, preserve_files: true, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
   validates_attachment_file_name :image, :matches => [/jpg\Z/, /jpe?g\Z/, /jpeg\Z/, /png\Z/, /gif\Z/]
   validates_attachment_content_type :resolution, content_type: ['application/pdf']
   validates_attachment_file_name :resolution, :matches => [/pdf\Z/]
+  validates_attachment :evaluative_file,  content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", 'application/pdf', 'application/odt', 'application/ods', 'application/doc', 'application/docx', 'application/xls'] }
 
   validates :name, :modality_id, :teachers, :description, :start_date, :finish_date, presence: true
   validates :image, presence: {message: I18n.t('errors.messages.upload_image') }
   validates :summary, length: {maximum: 100, message: I18n.t('errors.messages.summary_too_long')}, allow_blank: true
   validates :resolution_number, presence: {message: I18n.t('errors.messages.input_resolution_number') }, if: "resolution.present?"
   validates :resolution, presence: {message: I18n.t('errors.messages.upload_resolution') }, if: "resolution_number.present?"
-
-  validate :validate_start_before_finish_date, :validate_inscription_dates
 
   has_many :course_modules
   has_many :inscriptions
@@ -25,6 +25,8 @@ class Course < ApplicationRecord
   has_and_belongs_to_many :teachers, class_name: "Person"
   belongs_to :modality
   delegate :name, to: :modality, prefix: true
+
+  before_save :validate_start_before_finish_date, :validate_inscription_dates, if: :conditions_to_save?
 
   scope :active, ->() {
     where('start_date < ? AND finish_date > ?', Date.today, Date.today)
@@ -81,5 +83,9 @@ class Course < ApplicationRecord
 
   def duration_in_months
     (duration_in_weeks.to_f / MONTH_WEEKS).ceil
+  end
+
+  def conditions_to_save?
+    quiz_description_changed? || evaluative_file_file_name_changed?
   end
 end
