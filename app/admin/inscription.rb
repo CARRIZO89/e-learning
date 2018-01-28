@@ -2,7 +2,7 @@ ActiveAdmin.register Inscription do
   belongs_to :course
   navigation_menu :course
 
-  permit_params :course_id, :person_id
+  permit_params :course_id, :person_id, :payment
 
   filter :person_id, as: :select, collection: Student.all
   filter :course_id, as: :select, collection: Course.all
@@ -15,6 +15,7 @@ ActiveAdmin.register Inscription do
     column :dni do |c|
       c.person.dni
     end
+    column :payment
     actions
   end
 
@@ -22,6 +23,7 @@ ActiveAdmin.register Inscription do
     f.inputs do
       f.input :course_id, as: :select, collection: Course.between_dates(Date.today, :start_inscription_date, :finish_inscription_date)
       f.input :person_id, as: :select, collection: Student.all
+      f.input :payment
     end
     f.actions
   end

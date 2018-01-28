@@ -7,6 +7,7 @@ class Inscription < ApplicationRecord
   belongs_to :student, foreign_key: :person_id
   belongs_to :course
 
+  validates :course_id, :person_id, :payment, presence: true
   validates :person_id, uniqueness: { scope: :course_id }
 
   def self.enrolled?(course, person)

@@ -1,7 +1,7 @@
 ActiveAdmin.register Course do
   permit_params :name, :resolution_number, :modality_id, :resolution, :start_date, :finish_date,
                 :summary, :description, :image, :topic_list, :start_inscription_date, 
-                :finish_inscription_date, teacher_ids: []
+                :finish_inscription_date, :price, teacher_ids: []
   
   filter :id
   filter :name
@@ -17,6 +17,7 @@ ActiveAdmin.register Course do
     column :start_inscription_date
     column :finish_inscription_date
     column :start_date
+    column :price
     column I18n.t "courses.module_quantity" do |c|
       c.course_modules.count
     end
@@ -44,6 +45,7 @@ ActiveAdmin.register Course do
           row :finish_inscription_date
           row :start_date
           row :finish_date
+          row :price
           row :summary
           row :description
         end
@@ -93,6 +95,7 @@ ActiveAdmin.register Course do
       f.input :finish_inscription_date, as: :datepicker, :html_option => { value: Date.today }
       f.input :description
       f.input :summary
+      f.input :price
       f.input :teachers, as: :check_boxes, collection: Teacher.all.map {|u| [u.full_name.to_s, u.id]}, multiple: true
       f.input :topic_list, input_html: { value: f.object.topic_list.join(', ') }
     end

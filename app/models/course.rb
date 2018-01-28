@@ -12,7 +12,7 @@ class Course < ApplicationRecord
   validates_attachment_file_name :resolution, :matches => [/pdf\Z/]
   validates_attachment :evaluative_file,  content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", 'application/pdf', 'application/odt', 'application/ods', 'application/doc', 'application/docx', 'application/xls'] }
 
-  validates :name, :modality_id, :teachers, :description, :start_date, :finish_date, presence: true
+  validates :name, :modality_id, :teachers, :description, :start_date, :finish_date, :price, presence: true
   validates :image, presence: {message: I18n.t('errors.messages.upload_image') }
   validates :summary, length: {maximum: 100, message: I18n.t('errors.messages.summary_too_long')}, allow_blank: true
   validates :resolution_number, presence: {message: I18n.t('errors.messages.input_resolution_number') }, if: "resolution.present?"
