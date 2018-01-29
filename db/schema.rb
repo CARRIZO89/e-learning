@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171223042802) do
+ActiveRecord::Schema.define(version: 20180125202730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20171223042802) do
     t.integer  "evaluative_file_file_size"
     t.datetime "evaluative_file_updated_at"
     t.string   "quiz_description"
+    t.float    "price"
     t.index ["modality_id"], name: "index_courses_on_modality_id", using: :btree
   end
 
@@ -113,6 +114,7 @@ ActiveRecord::Schema.define(version: 20171223042802) do
     t.integer  "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "payment"
     t.index ["course_id"], name: "index_inscriptions_on_course_id", using: :btree
     t.index ["person_id"], name: "index_inscriptions_on_person_id", using: :btree
   end
