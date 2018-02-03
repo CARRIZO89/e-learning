@@ -20,6 +20,8 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'pundit'
 gem 'rails-erd', group: :development
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'byebug', platform: :mri

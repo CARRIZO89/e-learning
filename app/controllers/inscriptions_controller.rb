@@ -1,4 +1,18 @@
 class InscriptionsController < ApplicationController
+
+  def show
+    @inscription = Inscription.find(params[:id])
+    @course = Course.find(@inscription.course_id)
+    @student = Person.find(@inscription.person_id)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'invoice', layout: 'pdf', template: 'admin/inscriptions/show_pdf.html.erb'
+      end
+    end
+  end
+
   def create
     inscription = Inscription.new(inscription_params)
     inscription.save!
@@ -7,6 +21,7 @@ class InscriptionsController < ApplicationController
     flash[:body]   = t('.success', id: inscription.id)
     redirect_back(fallback_location: '')
   end
+
 
   def destroy
     @inscription.destroy

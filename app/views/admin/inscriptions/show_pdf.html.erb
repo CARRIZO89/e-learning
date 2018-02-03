@@ -1,0 +1,29 @@
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th colspan="2" style="width: 200px;">Detalle de Inscripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr-tr">
+      <td>Número de inscripción:</td>
+      <td><%= @inscription.id %></td>
+    </tr>
+    <tr class="tr-tr">
+      <td>Fecha:</td>
+      <td><%= @inscription.created_at %></td>
+    </tr>
+    <tr class="tr-tr">
+      <td>Curso:</td>
+      <td><%= @course.name %></td>
+    </tr>
+    <tr class="tr-tr">
+      <td>Alumno:</td>
+      <td><%= @student.last_name %>, <%= @student.first_name %></td>
+    </tr>
+    <tr class="tr-tr">
+      <td>Monto pagado:</td>
+      <td>$ <%= @inscription.payment %></td>
+    </tr>
+  </tbody>
+</table>

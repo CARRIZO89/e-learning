@@ -1,0 +1,10 @@
+<ul>
+  <% @inscriptions.each do |inscription| %>
+    <li>Numero de inscripcion: <%= inscription.id %></li>
+    <li>Fecha: <%= inscription.created_at %></li>
+    <li>Curso: <%= inscription.course_id %></li>
+    <li>Alumno: <%= inscription.person_id %></li>
+    <li>Monto pagado: $ <%= inscription.payment %></li>
+  ------------------------------------------------
+  <% end %>
+</ul>

@@ -4,10 +4,32 @@ ActiveAdmin.register Inscription do
 
   permit_params :course_id, :person_id, :payment
 
+
   filter :person_id, as: :select, collection: Student.all
   filter :course_id, as: :select, collection: Course.all
+  
+  #El código debajo reescribe el index del inscription_controller dandole una nueva forma de responder, en este caso como pdf
+  controller do
+    def index
+      respond_to do |format|
+        format.html { super }
+        format.csv  { super }
+        format.xml  { super }
+        format.json { super }
 
-  index do
+        format.pdf do
+          @inscriptions = Inscription.all
+          render pdf: 'inscriptions', layout: 'pdf', template: 'admin/inscriptions/index_pdf.html.erb'
+        end
+      end
+    end
+  end
+
+   action_item :import_pdf, only: :show do #Genera un btn
+     link_to 'Import PDF', inscription_es_path(Inscription.find(params[:id]), :pdf) #link al elemento que quiero ver. Le paso por parametro el elemento y la extensión pdf para forma la url correcta
+   end
+
+  index download_links: [:csv, :xml, :json, :pdf] do #"download_links" agrega un nuevo link a la colección de links del index, el cual permite descargar todo el index como pdf
     selectable_column
     column :id
     column :course_id
