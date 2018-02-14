@@ -18,12 +18,15 @@ ActiveAdmin.register Inscription do
         format.json { super }
 
         format.pdf do
-          @inscriptions = Inscription.all
           render pdf: 'inscriptions', layout: 'pdf', template: 'admin/inscriptions/index_pdf.html.erb'
         end
       end
     end
   end
+
+  # action_item :import_pdf, only: :index do #Genera un btn
+  #   link_to 'Import PDF', inscriptions_es_path(:pdf) #link al elemento que quiero ver. Le paso por parametro el elemento y la extensión pdf para forma la url correcta
+  # end
 
    action_item :import_pdf, only: :show do #Genera un btn
      link_to 'Import PDF', inscription_es_path(Inscription.find(params[:id]), :pdf) #link al elemento que quiero ver. Le paso por parametro el elemento y la extensión pdf para forma la url correcta

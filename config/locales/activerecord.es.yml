@@ -7,7 +7,7 @@ es:
       tags: Etiquetas
       admin_users: Usuarios Admin
       answer: Respuesta
-      course: Curso
+      course: Cursos
       course_module: Módulo
       inscription:
         one: Inscripción
@@ -21,10 +21,10 @@ es:
       role:
         one: Rol
         other: Roles
-      user: Usuario
+      user: Usuarios
       student: Alumno
       teacher: Profesor
-      modality: Modalidad
+      modality: Modalidades
       comment: Comentario
       course_module_person:
         one: Habilitación

@@ -1,5 +1,5 @@
 ActiveAdmin.register Tag do
-  menu label: proc{ I18n.t("activerecord.models.tags") }
+  # menu label: proc{ I18n.t("activerecord.models.tags") }
   permit_params :name
 
   filter :taggings
