@@ -1,0 +1,37 @@
+<table class="table">
+  <thead class="th-tables">
+    <tr>
+      <th colspan="2" style="width: 200px;">Detalle del Curso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Curso Número:</td>
+        <td><%= @course.id %></td>
+      </tr>
+      <tr>
+        <td>Número de resolución:</td>
+        <td><%= @course.resolution_number %></td>
+      </tr>
+      <tr>
+        <td>Inicio de Inscripción:</td>
+        <td><%= @course.start_inscription_date %></td>
+      </tr>
+      <tr>
+        <td>Cierre de Inscripción:</td>
+        <td><%= @course.finish_inscription_date %></td>
+      </tr>
+      <tr>
+        <td>Fecha de Inicio del Curso:</td>
+        <td><%= @course.start_date %></td>
+      </tr>
+      <tr>
+        <td>Cantidad de Módulos:</td>
+        <td><%= @course.course_modules.count %></td>
+      </tr>
+      <tr>
+        <td>Precio:</td>
+        <td>$ <%= @course.price %></td>
+      </tr>
+  </tbody>
+</table>

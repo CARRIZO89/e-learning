@@ -10,7 +10,17 @@ class Inscription < ApplicationRecord
   validates :course_id, :person_id, :payment, presence: true
   validates :person_id, uniqueness: { scope: :course_id }
 
+  before_save :validate_payment
+
   def self.enrolled?(course, person)
     self.where(course: course, person: person).exists?
   end
+
+  private
+
+  def validate_payment
+    return if payment.blank?
+    errors.add(:payment, I18n.t('errors.messages.payment_error')) unless payment >= course.price
+  end
+
 end

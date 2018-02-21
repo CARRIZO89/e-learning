@@ -14,7 +14,15 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @already_enrolled = Inscription.enrolled?(@course, current_person)
+    @course = Course.find(params[:id])
+    # @already_enrolled = Inscription.enrolled?(@course, current_person)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'document', layout: 'pdf', template: 'admin/courses/show_pdf.html.erb'
+      end
+    end
   end
 
   private

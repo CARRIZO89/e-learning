@@ -1,0 +1,25 @@
+<table class="table">
+  <thead class="th-tables">
+    <tr>
+      <th colspan="2" style="width: 200px;">Detalle del Curso</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+      <td>Módulo:</td>
+        <td><%= @course_module.name %></td>
+      </tr>
+      <tr>
+        <td>Curso al que pertenece:</td>
+        <td><%= @course_module.course.name %></td>
+      </tr>
+      <tr>
+        <td>Fecha de creación:</td>
+        <td><%= @course_module.created_at %></td>
+      </tr>
+      <tr>
+        <td>Fecha de actualización:</td>
+        <td><%= @course_module.updated_at %></td>
+      </tr>
+  </tbody>
+</table>

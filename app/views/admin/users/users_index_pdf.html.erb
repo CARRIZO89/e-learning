@@ -1,0 +1,39 @@
+<% collection.each do |user| %>
+  <table class="table">
+    <thead class="th-tables">
+      <tr>
+        <th colspan="2" style="width: 200px;">Detalle de Curso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Número de Usuario:</td>
+        <td><%= user.id %></td>
+      </tr>
+      <tr>
+        <td>Nombre:</td>
+        <td><%= user.person.first_name %> <%= user.person.last_name %></td>
+      </tr>
+      <tr>
+        <td>Rol:</td>
+        <td><%= user.role.name %></td>
+      </tr>
+      <tr>
+        <td>Correo electrónico:</td>
+        <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <td>Fecha de creación:</td>
+        <td><%= user.created_at %></td>
+      </tr>
+      <tr>
+        <td>Última conexión del Usuario:</td>
+        <td><%= user.last_sign_in_at %></td>
+      </tr>
+      <tr>
+        <td>Fecha de actualización:</td>
+        <td><%= user.updated_at %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
