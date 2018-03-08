@@ -22,6 +22,7 @@ gem 'pundit'
 gem 'rails-erd', group: :development
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'aws-sdk', '~> 2'
 
 group :development, :test do
   gem 'byebug', platform: :mri
