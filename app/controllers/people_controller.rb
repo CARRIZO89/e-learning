@@ -10,6 +10,12 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'document', layout: 'pdf', template: 'admin/users/show_pdf.html.erb'
+      end
+    end
   end
 
   # GET /people/new

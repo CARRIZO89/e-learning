@@ -7,7 +7,7 @@ es:
       tags: Etiquetas
       admin_users: Usuarios Admin
       answer: Respuesta
-      course: Curso
+      course: Cursos
       course_module: Módulo
       inscription:
         one: Inscripción
@@ -21,10 +21,10 @@ es:
       role:
         one: Rol
         other: Roles
-      user: Usuario
+      user: Usuarios
       student: Alumno
       teacher: Profesor
-      modality: Modalidad
+      modality: Modalidades
       comment: Comentario
       course_module_person:
         one: Habilitación
@@ -51,6 +51,8 @@ es:
         summary: Resumen
         start_date: Inicio de Cursado
         finish_date: Finalización de Cursado
+        price_course: "El precio del curso es de:"
+        price: Precio
         quiz: Examen
         quiz_description: Descripción del Examen
         start_inscription_date: Inicio de Inscripciones
@@ -125,6 +127,7 @@ es:
         course_id: Curso
         person_id: Estudiante
         created_at: Fecha de Inscripción
+        payment: Pago
       course_module_person:
         people_id: Estudiante
         course_module_id: Módulo

@@ -27,7 +27,7 @@
              <%= image_tag @course.evaluative_file_file_name.url(:original), size: "1000x300" %>
             <%else%>
               <h5 class="btn-download-evaluative"><strong><%= @course.evaluative_file_file_name %></strong></h5>
-              <%= link_to "Descarga Examen", @course.evaluative_file.url(:original, false), class: 'btn btn-primary btn-download-evaluative' %>
+              <%= link_to "Descarga Examen", @course.evaluative_file.url(:original, false), class: 'btn btn-primary btn-download-evaluative', id: 'btn-download' %>
             <% end %>
           <%else%>
             <div class="alert alert-warning" role="alert">

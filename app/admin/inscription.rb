@@ -18,16 +18,15 @@ ActiveAdmin.register Inscription do
         format.json { super }
 
         format.pdf do
-          @inscriptions = Inscription.all
           render pdf: 'inscriptions', layout: 'pdf', template: 'admin/inscriptions/index_pdf.html.erb'
         end
       end
     end
   end
 
-   action_item :import_pdf, only: :show do #Genera un btn
-     link_to 'Import PDF', inscription_es_path(Inscription.find(params[:id]), :pdf) #link al elemento que quiero ver. Le paso por parametro el elemento y la extensión pdf para forma la url correcta
-   end
+  action_item :import_pdf, only: :show do #Genera un btn
+    link_to 'Import PDF', inscription_es_path(Inscription.find(params[:id]), :pdf) #link al elemento que quiero ver. Le paso por parametro el elemento y la extensión pdf para forma la url correcta
+  end
 
   index download_links: [:csv, :xml, :json, :pdf] do #"download_links" agrega un nuevo link a la colección de links del index, el cual permite descargar todo el index como pdf
     selectable_column
@@ -42,6 +41,10 @@ ActiveAdmin.register Inscription do
   end
 
   form do |f|
+    f.inputs I18n.t('activerecord.attributes.course.price_course') do
+      f.output course.price
+    end
+
     f.inputs do
       f.input :course_id, as: :select, collection: Course.between_dates(Date.today, :start_inscription_date, :finish_inscription_date)
       f.input :person_id, as: :select, collection: Student.all

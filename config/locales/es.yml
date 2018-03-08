@@ -104,3 +104,4 @@ es:
       must_be_before_finish_inscription_date: "Debe ser antes del final de las inscripciones"
       must_be_before_start_date: "Debe ser antes del inicio de cursado"
       summary_too_long: "No debe exceder los 100 caracteres"
+      payment_error: "Erro: El pago no puede estar en blanco, ni ser menor al precio del curso."

@@ -1,10 +1,31 @@
-<ul>
-  <% @inscriptions.each do |inscription| %>
-    <li>Numero de inscripcion: <%= inscription.id %></li>
-    <li>Fecha: <%= inscription.created_at %></li>
-    <li>Curso: <%= inscription.course_id %></li>
-    <li>Alumno: <%= inscription.person_id %></li>
-    <li>Monto pagado: $ <%= inscription.payment %></li>
-  ------------------------------------------------
-  <% end %>
-</ul>
+<% collection.each do |inscription| %>
+  <table class="table">
+    <thead class="th-tables">
+      <tr>
+        <th colspan="2" style="width: 200px;">Detalle de Inscripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Número de inscripción:</td>
+        <td><%= inscription.id %></td>
+      </tr>
+      <tr>
+        <td>Fecha de Inscripción:</td>
+        <td><%= inscription.created_at %></td>
+      </tr>
+      <tr>
+        <td>Curso:</td>
+        <td><%= Course.find(inscription.course_id).name%></td>
+      </tr>
+      <tr>
+        <td>Alumno:</td>
+        <td><%= Person.find(inscription.person_id).last_name %>, <%= Person.find(inscription.person_id).first_name %></td>
+      </tr>
+      <tr>
+        <td>Monto pagado:</td>
+        <td>$ <%= inscription.payment %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

@@ -16,7 +16,26 @@ ActiveAdmin.register CourseModule do
   filter :created_at
   filter :updated_at
 
-  index do
+  controller do
+    def index
+      respond_to do |format|
+        format.html { super }
+        format.csv  { super }
+        format.xml  { super }
+        format.json { super }
+
+        format.pdf do
+          render pdf: 'courses_modules', layout: 'pdf', template: 'admin/courses_modules/modules_index_pdf.html.erb'
+        end
+      end
+    end
+  end
+  
+  action_item :import_pdf, only: :show do #Genera un btn
+    link_to 'Import PDF', course_module_es_path(CourseModule.find(params[:id]), :pdf) #link al elemento que quiero ver. Le paso por parametro el elemento y la extensión pdf para forma la url correcta
+  end
+
+  index download_links: [:csv, :xml, :json, :pdf] do
     column :id
     column :name
     column :course_id

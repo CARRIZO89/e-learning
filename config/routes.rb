@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { registrations: 'users/registrations' }
 
     get 'profile', to: 'users#show'
-    resources :inscriptions, only: [:create, :show, :destroy]
+    resources :people, only: [:index, :show, :create, :destroy]
+    resources :inscriptions, only: [:index, :show, :create, :destroy]
     resources :courses, only: [:index, :show] do
       post :inscriptions, to: 'inscriptions#create'
     end

@@ -1,0 +1,38 @@
+<table class="table">
+  <thead class="th-tables">
+    <tr>
+      <th colspan="2" style="width: 200px;">Detalle del Usuario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <tr>
+        <td>Número de Usuario:</td>
+          <td><%= @person.id %></td>
+        </tr>
+        <tr>
+          <td>Nombre:</td>
+          <td><%= @person.first_name %> <%= @person.last_name %></td>
+        </tr>
+        <tr>
+          <td>Rol:</td>
+          <td><%= @person.user.role.name %></td>
+        </tr>
+        <tr>
+          <td>Correo electrónico:</td>
+          <td><%= @person.user.email %></td>
+        </tr>
+        <tr>
+          <td>Fecha de creación:</td>
+          <td><%= @person.user.created_at %></td>
+        </tr>
+        <tr>
+          <td>Última conexión del Usuario:</td>
+          <td><%= @person.user.last_sign_in_at %></td>
+        </tr>
+        <tr>
+          <td>Fecha de actualización:</td>
+          <td><%= @person.user.updated_at %></td>
+        </tr>
+  </tbody>
+</table>

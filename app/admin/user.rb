@@ -5,13 +5,32 @@ ActiveAdmin.register User do
   permit_params :email, :password, :password_confirmation, :role_id,
                 person_attributes: [:id, :first_name, :last_name, :province_id, :dni, :type]
 
-filter :id
-filter :created_at
-filter :updated_at
-filter :role
-filter :person_id
+  filter :id
+  filter :created_at
+  filter :updated_at
+  filter :role
+  filter :person_id
 
-  index do
+  controller do
+    def index
+      respond_to do |format|
+        format.html { super }
+        format.csv  { super }
+        format.xml  { super }
+        format.json { super }
+
+        format.pdf do
+          render pdf: 'users', layout: 'pdf', template: 'admin/users/users_index_pdf.html.erb'
+        end
+      end
+    end
+  end
+
+  action_item :import_pdf, only: :show do #Genera un btn
+    link_to 'Import PDF', person_es_path(Person.find(params[:id]), :pdf) #link al elemento que quiero ver. Le paso por parametro el elemento y la extensión pdf para forma la url correcta
+  end
+
+  index download_links: [:csv, :xml, :json, :pdf] do
     column :id
     column :email
     column :last_sign_in_at

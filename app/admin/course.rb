@@ -9,8 +9,27 @@ ActiveAdmin.register Course do
   filter :start_inscription_date
   filter :finish_inscription_date
   filter :start_date
+
+  controller do
+    def index
+      respond_to do |format|
+        format.html { super }
+        format.csv  { super }
+        format.xml  { super }
+        format.json { super }
+
+        format.pdf do
+          render pdf: 'courses', layout: 'pdf', template: 'admin/courses/courses_index_pdf.html.erb'
+        end
+      end
+    end
+  end
+
+  action_item :import_pdf, only: :show do #Genera un btn
+    link_to 'Import PDF', course_es_path(Course.find(params[:id]), :pdf) #link al elemento que quiero ver. Le paso por parametro el elemento y la extensión pdf para forma la url correcta
+  end
   
-  index do
+  index download_links: [:csv, :xml, :json, :pdf] do
     column :id
     column :name
     column :resolution_number
